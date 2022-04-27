@@ -34,6 +34,7 @@ public class ContestOfCitiesTests extends BaseTest {
         ukranianCitiesChoose = new UkranianCitiesChoose();
         russianCitiesChoose = new RussianCitiesChoose();
         countriesPage = new CountriesPage();
+        driver.findElement(locationchoose.getSelectButton()).click();
     }
 
     @DataProvider(name = "dataTest")
@@ -67,7 +68,6 @@ public class ContestOfCitiesTests extends BaseTest {
     @TmsLink("5630752")
     @Test(description = "Краткое описание теста/проверки", dataProvider = "dataTest")
     public void contestOfCities(By country, By firstChoose, By secondChoose, String firstMessage, String secondMessage) {
-        driver.findElement(locationchoose.getSelectButton()).click();
 
         if (secondChoose != null) {
             driver.findElement(country).click();
