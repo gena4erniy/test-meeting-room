@@ -138,7 +138,6 @@ public class ContestOfCitiesTests extends BaseTest {
         Assert.assertTrue(driver.findElement(russianCitiesChoose.getButtonSaintP()).isDisplayed() && driver.findElement(russianCitiesChoose.getButtonKazan()).isDisplayed(), "The List of cities page for Russia is displayed List: Saint Petersburg, Kazan)");
         driver.findElement(russianCitiesChoose.getButtonSaintP()).click();
         Assert.assertEquals(driver.findElement(locationchoose.getCityName()).getText(), "Saint Petersburg");
-
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(locationchoose.getNextButton()));
         action.doubleClick();
@@ -155,7 +154,6 @@ public class ContestOfCitiesTests extends BaseTest {
         driver.findElement(belarusCitiesChoose.getButtonGomel()).click();
         driver.findElement(locationchoose.getNextButton()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getMySpaceTitle()).isDisplayed(),"My space page is not displayed.");
-
         driver.findElement(mySpacePage.getSettingsButton()).click();
         driver.findElement(mySpacePage.getLocationSettings()).click();
         Assert.assertEquals(driver.findElement(locationchoose.getCityName()).getText(), "Gomel","The location choice is not saved on the User's device.");
