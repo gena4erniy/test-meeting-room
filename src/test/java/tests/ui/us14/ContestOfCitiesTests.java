@@ -114,13 +114,11 @@ public class ContestOfCitiesTests extends BaseTest {
         Assert.assertTrue(driver.findElement(belarusCitiesChoose.getButtonGomel()).isDisplayed() && driver.findElement(belarusCitiesChoose.getButtonMinsk()).isDisplayed(), "The List of cities page for Belarus is not displayed List:Minsk, Gomel");
         driver.findElement(belarusCitiesChoose.getButtonGomel()).click();
         driver.findElement(locationchoose.getSelectButton()).click();
-
         Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
         driver.findElement(countriesPage.getSelectUkraine()).click();
         Assert.assertTrue(driver.findElement(ukranianCitiesChoose.getButtonKiev()).isDisplayed(), "The List of cities  page for Ukraine is displayed List: Kyiv");
         driver.findElement(ukranianCitiesChoose.getButtonKiev()).click();
         driver.findElement(locationchoose.getSelectButton()).click();
-
         Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
         driver.findElement(countriesPage.getSelectRussia()).click();
         Assert.assertTrue(driver.findElement(russianCitiesChoose.getButtonSaintP()).isDisplayed() && driver.findElement(russianCitiesChoose.getButtonKazan()).isDisplayed(), "The List of cities page for Russia is displayed List: Saint Petersburg, Kazan)");
