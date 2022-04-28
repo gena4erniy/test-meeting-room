@@ -35,7 +35,7 @@ public class AuthorizationTests {
     @Owner("Kudayeu S.")
     @TmsLink("5628118")
     @Test(description = "Краткое описание теста/проверки")
-    public void authorization(){
+    public void authorization() {
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL);
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS);
         driver.findElement(authorizationPage.getButtonLogin()).click();
