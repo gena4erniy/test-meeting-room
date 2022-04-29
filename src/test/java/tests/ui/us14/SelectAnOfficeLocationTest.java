@@ -1,5 +1,7 @@
 package tests.ui.us14;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
 import org.testng.Assert;
@@ -10,6 +12,8 @@ import ui.pages.*;
 
 import java.net.MalformedURLException;
 
+@Epic("Login")
+@Feature("US 1.4")
 public class SelectAnOfficeLocationTest extends BaseTest {
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
