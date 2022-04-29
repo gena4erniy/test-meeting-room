@@ -1,4 +1,4 @@
-package us12;
+package tests.ui.us12;
 
 public class AdministratorNotManageTests {
 //    @Test
