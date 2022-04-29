@@ -25,7 +25,6 @@ public class ContestOfCitiesTests extends BaseTest {
     private UkranianCitiesChoose ukranianCitiesChoose;
     private RussianCitiesChoose russianCitiesChoose;
     private CountriesPage countriesPage;
-    private MySpacePage mySpacePage;
 
     public ContestOfCitiesTests() throws MalformedURLException {
     }
@@ -38,7 +37,6 @@ public class ContestOfCitiesTests extends BaseTest {
         ukranianCitiesChoose = new UkranianCitiesChoose();
         russianCitiesChoose = new RussianCitiesChoose();
         countriesPage = new CountriesPage();
-        mySpacePage = new MySpacePage();
         driver.findElement(locationchoose.getSelectButton()).click();
     }
 
@@ -83,26 +81,5 @@ public class ContestOfCitiesTests extends BaseTest {
             driver.findElement(countriesPage.getSelectUkraine()).click();
             Assert.assertTrue(driver.findElement(firstChoose).isDisplayed(), firstMessage);
         }
-    }
-
-
-
-
-
-
-
-    @Owner("Vaskovich K.")
-    @TmsLink("5630751")
-    @Test
-    public void selectAnOfficeLocationTest() {
-        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
-        driver.findElement(countriesPage.getSelectBelarus()).click();
-        Assert.assertTrue(driver.findElement(belarusCitiesChoose.getButtonGomel()).isDisplayed() && driver.findElement(belarusCitiesChoose.getButtonMinsk()).isDisplayed(), "The List of cities page for Belarus is not displayed List:Minsk, Gomel");
-        driver.findElement(belarusCitiesChoose.getButtonGomel()).click();
-        driver.findElement(locationchoose.getNextButton()).click();
-        Assert.assertTrue(driver.findElement(mySpacePage.getMySpaceTitle()).isDisplayed(),"My space page is not displayed.");
-        driver.findElement(mySpacePage.getSettingsButton()).click();
-        driver.findElement(mySpacePage.getLocationSettings()).click();
-        Assert.assertEquals(driver.findElement(locationchoose.getCityName()).getText(), "Gomel","The location choice is not saved on the User's device.");
     }
 }

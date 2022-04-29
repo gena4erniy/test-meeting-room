@@ -11,7 +11,6 @@ import ui.pages.*;
 import java.net.MalformedURLException;
 
 public class ContentOfTheListOfCitiesTest extends BaseTest {
-
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
     private UkranianCitiesChoose ukranianCitiesChoose;
