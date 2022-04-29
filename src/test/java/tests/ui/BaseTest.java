@@ -3,6 +3,7 @@ package tests.ui;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import ui.pages.*;
 
 import java.net.MalformedURLException;
@@ -19,10 +20,15 @@ public class BaseTest {
     public BaseTest() throws MalformedURLException {
     }
 
-    public void authorization(){
+    public void authorization() {
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL);
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS);
         driver.findElement(authorizationPage.getButtonLogin()).click();
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
+    }
+
+    @AfterClass
+    public void closeDriver() {
+        driver.quit();
     }
 }
