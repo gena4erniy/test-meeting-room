@@ -20,6 +20,10 @@ public class Constant {
     public static class ValidCredo {
         public static final String VALID_MAIL = "user1@gmail.com";
         public static final String VALID_PASS = "1111";
+
+        public static final String VALID_MAIL_ADMIN = "n.ermakov@andersenlab.com";
+        public static final String VALID_PASS_ADMIN = "helloworld";
+
     }
 
     public static class ValidNoEventRoomCredo{
