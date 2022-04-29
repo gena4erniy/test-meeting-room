@@ -85,62 +85,11 @@ public class ContestOfCitiesTests extends BaseTest {
         }
     }
 
-    @Owner("Vaskovich K.")
-    @TmsLink("5630744")
-    @Test
-    public void tapBackButtonOnTheLocationTest() {
-        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
-        driver.findElement(countriesPage.getBackButton()).click();
-        Assert.assertTrue(driver.findElement(locationchoose.getSelectButton()).isDisplayed(), "The  location page is not displayed");
-    }
 
-    @Owner("Vaskovich K.")
-    @TmsLink("5630745")
-    @Test
-    public void tapCountryButtonOnTheLocationTest() {
-        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
-        driver.findElement(countriesPage.getSelectUkraine()).click();
-        Assert.assertTrue(driver.findElement(ukranianCitiesChoose.getButtonKiev()).isDisplayed(), "The List of cities page for selected country is not displayed");
-        driver.findElement(ukranianCitiesChoose.getButtonKiev()).click();
-        Assert.assertTrue(driver.findElement(locationchoose.getSelectButton()).isDisplayed(), "The  location page is not displayed");
-    }
 
-    @Owner("Vaskovich K.")
-    @TmsLink("5630752")
-    @Test()
-    public void contentsOfTheListOfCitiesTest() {
-        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
-        driver.findElement(countriesPage.getSelectBelarus()).click();
-        Assert.assertTrue(driver.findElement(belarusCitiesChoose.getButtonGomel()).isDisplayed() && driver.findElement(belarusCitiesChoose.getButtonMinsk()).isDisplayed(), "The List of cities page for Belarus is not displayed List:Minsk, Gomel");
-        driver.findElement(belarusCitiesChoose.getButtonGomel()).click();
-        driver.findElement(locationchoose.getSelectButton()).click();
-        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
-        driver.findElement(countriesPage.getSelectUkraine()).click();
-        Assert.assertTrue(driver.findElement(ukranianCitiesChoose.getButtonKiev()).isDisplayed(), "The List of cities  page for Ukraine is displayed List: Kyiv");
-        driver.findElement(ukranianCitiesChoose.getButtonKiev()).click();
-        driver.findElement(locationchoose.getSelectButton()).click();
-        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
-        driver.findElement(countriesPage.getSelectRussia()).click();
-        Assert.assertTrue(driver.findElement(russianCitiesChoose.getButtonSaintP()).isDisplayed() && driver.findElement(russianCitiesChoose.getButtonKazan()).isDisplayed(), "The List of cities page for Russia is displayed List: Saint Petersburg, Kazan)");
-        driver.findElement(russianCitiesChoose.getButtonSaintP()).click();
-        driver.findElement(locationchoose.getSelectButton()).click();
-    }
 
-    @Owner("Vaskovich K.")
-    @TmsLink("5632927")
-    @Test
-    @Ignore("Fix double type")
-    public void doubleTapOnNextButtonTest() {
-        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
-        driver.findElement(countriesPage.getSelectRussia()).click();
-        Assert.assertTrue(driver.findElement(russianCitiesChoose.getButtonSaintP()).isDisplayed() && driver.findElement(russianCitiesChoose.getButtonKazan()).isDisplayed(), "The List of cities page for Russia is displayed List: Saint Petersburg, Kazan)");
-        driver.findElement(russianCitiesChoose.getButtonSaintP()).click();
-        Assert.assertEquals(driver.findElement(locationchoose.getCityName()).getText(), "Saint Petersburg");
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(locationchoose.getNextButton()));
-        action.doubleClick();
-        action.perform();
-    }
+
+
 
     @Owner("Vaskovich K.")
     @TmsLink("5630751")

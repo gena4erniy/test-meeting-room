@@ -33,7 +33,7 @@ public class TapCountryButtonForCitiesTest extends BaseTest {
 
     @Owner("Vaskovich K.")
     @TmsLink("5630745")
-    @Test
+    @Test(description = "Verification that tap on Country button lead to the list of countries")
     public void tapCountryButtonOnTheLocationTest() {
         Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
         driver.findElement(countriesPage.getSelectUkraine()).click();
