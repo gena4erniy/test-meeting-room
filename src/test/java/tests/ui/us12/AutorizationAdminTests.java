@@ -44,7 +44,7 @@ public class AutorizationAdminTests {
     }
 
     @Owner("Sirozh E.")
-    @TmsLink("5629375")
+    @TmsLink("5629")
     @Test(description = "Краткое описание теста/проверки")
     public void authorizationAdmin() {
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_ADMIN);

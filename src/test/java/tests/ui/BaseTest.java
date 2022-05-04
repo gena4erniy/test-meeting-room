@@ -32,6 +32,13 @@ public class BaseTest {
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
     }
 
+    public void authorizationAdmin() {
+        driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_ADMIN);
+        driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS_ADMIN);
+        Assert.assertTrue(driver.findElement(authorizationPage.getButtonLogin()).isEnabled(), "Element Login isn't active");
+        driver.findElement(authorizationPage.getButtonLogin()).click();
+    }
+
     @SneakyThrows
     public void authorizationWithNoEvents(){
         driver = capabilities();
