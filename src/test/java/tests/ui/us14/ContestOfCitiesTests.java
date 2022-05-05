@@ -6,9 +6,7 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import tests.ui.BaseTest;
 import ui.pages.*;
 
