@@ -21,4 +21,18 @@ public class Constant {
         public static final String VALID_MAIL = "user1@gmail.com";
         public static final String VALID_PASS = "1111";
     }
+    public static class ValidCredoSpace {
+        public static final String VALID_MAIL_SPACE = "user1 @gmail.com";
+        public static final String VALID_PASS_SPACE = "11 11";
+    }
+    public static class InValidCredo {
+        public static final String INVALID_MAIL= "user131@gmail.com";
+        public static final String INVALID_PASS = "112311";
+        public static final String MAX_MAIL = "1234567890123456789012345678901234567890123456789012345678901234";
+        public static final String MORE_MAX_MAIL = "12345678901234567890123456789012345678901234567890123456789012345";
+    }
+
+
+
+
 }

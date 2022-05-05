@@ -66,7 +66,7 @@ public class ContestOfCitiesTests extends BaseTest {
 
     @Owner("Kudayeu S.")
     @TmsLink("5630752")
-    @Test(description = "Краткое описание теста/проверки", dataProvider = "dataTest")
+    @Test(description = "Contents of the list of cities", dataProvider = "dataTest")
     public void contestOfCities(By country, By firstChoose, By secondChoose, String firstMessage, String secondMessage) {
 
         if (secondChoose != null) {
