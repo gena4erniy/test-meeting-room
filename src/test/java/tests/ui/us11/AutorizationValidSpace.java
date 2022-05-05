@@ -16,13 +16,14 @@ import ui.pages.LocationChoose;
 
 import java.net.MalformedURLException;
 
-import static ui.constants.Constant.ValidCredo.VALID_MAIL;
-import static ui.constants.Constant.ValidCredo.VALID_PASS;
+import static ui.constants.Constant.ValidCredoSpace.VALID_MAIL_SPACE;
+import static ui.constants.Constant.ValidCredoSpace.VALID_PASS_SPACE;
 import static ui.pages.BasePage.capabilities;
 
 @Epic("Login")
 @Feature("US 1.1")
-public class AuthorizationTests {
+
+public class AutorizationValidSpace {
     private AndroidDriver<AndroidElement> driver;
     private AuthorizationPage authorizationPage;
     private LocationChoose locationchoose;
@@ -32,19 +33,17 @@ public class AuthorizationTests {
         driver = capabilities();
         authorizationPage = new AuthorizationPage();
         locationchoose = new LocationChoose();
-
     }
-
     @AfterClass
     public void closeDriver() {driver.quit();}
 
     @Owner("Kudayeu S.")
-    @TmsLink("5628118")
-    @Test(description = "User authorization using valid data")
-    public void authorization(){
-        driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL);
-        driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS);
+    @TmsLink("5629334")
+    @Test(description = "User authorization using valid data with space in the middle")
+    public void authorizationSpace(){
+        driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_SPACE);
+        driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS_SPACE);
         driver.findElement(authorizationPage.getButtonLogin()).click();
-        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
+        Assert.assertTrue(driver.findElement(authorizationPage.getAlert()).isDisplayed(), "test failed");
     }
 }

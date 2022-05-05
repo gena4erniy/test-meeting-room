@@ -8,43 +8,40 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ui.pages.AuthorizationPage;
-import ui.pages.LocationChoose;
 
 import java.net.MalformedURLException;
 
-import static ui.constants.Constant.ValidCredo.VALID_MAIL;
 import static ui.constants.Constant.ValidCredo.VALID_PASS;
 import static ui.pages.BasePage.capabilities;
 
 @Epic("Login")
 @Feature("US 1.1")
-public class AuthorizationTests {
+
+public class PasswordMask {
     private AndroidDriver<AndroidElement> driver;
     private AuthorizationPage authorizationPage;
-    private LocationChoose locationchoose;
 
     @BeforeClass
     private void preconditions() throws MalformedURLException {
         driver = capabilities();
         authorizationPage = new AuthorizationPage();
-        locationchoose = new LocationChoose();
-
     }
+
 
     @AfterClass
     public void closeDriver() {driver.quit();}
 
     @Owner("Kudayeu S.")
-    @TmsLink("5628118")
-    @Test(description = "User authorization using valid data")
-    public void authorization(){
-        driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL);
+    @TmsLink("5628570")
+    @Test(description = "Password mask switch")
+    public void passMask(){
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS);
-        driver.findElement(authorizationPage.getButtonLogin()).click();
-        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
+        Assert.assertTrue(driver.findElement(authorizationPage.getEyeIconcross()).isDisplayed(), "Hover doesn't work");
+        Assert.assertTrue(driver.findElement(authorizationPage.getHoverPass()).isDisplayed(), "Hover doesn't work");
+        driver.findElement(authorizationPage.getEyeIcon()).click();
+        Assert.assertTrue(driver.findElement(authorizationPage.getEyeIconNocross()).isDisplayed(), "Hover doesn't work");
+        Assert.assertTrue(driver.findElement(authorizationPage.getNoHoverPass()).isDisplayed(), "Hover doesn't work");
     }
 }
