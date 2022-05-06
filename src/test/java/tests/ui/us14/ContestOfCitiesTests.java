@@ -10,8 +10,6 @@ import org.testng.annotations.*;
 import tests.ui.BaseTest;
 import ui.pages.*;
 
-import java.net.MalformedURLException;
-
 @Epic("Login")
 @Feature("US 1.4")
 public class ContestOfCitiesTests extends BaseTest {
@@ -21,7 +19,7 @@ public class ContestOfCitiesTests extends BaseTest {
     private RussianCitiesChoose russianCitiesChoose;
     private CountriesPage countriesPage;
 
-    public ContestOfCitiesTests() throws MalformedURLException {
+    public ContestOfCitiesTests(){
     }
 
     @BeforeClass

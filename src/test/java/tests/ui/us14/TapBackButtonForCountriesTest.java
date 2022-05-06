@@ -10,15 +10,13 @@ import org.testng.annotations.Test;
 import tests.ui.BaseTest;
 import ui.pages.*;
 
-import java.net.MalformedURLException;
-
 @Epic("Login")
 @Feature("US 1.4")
 public class TapBackButtonForCountriesTest extends BaseTest {
     private LocationChoose locationchoose;
     private CountriesPage countriesPage;
 
-    public TapBackButtonForCountriesTest() throws MalformedURLException {
+    public TapBackButtonForCountriesTest() {
     }
 
     @BeforeClass

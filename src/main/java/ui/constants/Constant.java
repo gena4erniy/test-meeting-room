@@ -11,10 +11,10 @@ public class Constant {
     }
 
     public static class Capabilities {
-        public static final String NAME_DEVICE = "emulator-5554";
+        public static final String NAME_DEVICE = "Pixel 2 XL API 30";
         public static final String APP_PACKAGE = "com.andersenlab.meeting_room.debug";
         public static final String APP_ACTIVITY = "com.meetingroom.android.ui.MainActivity";
-        public static final String NAME_AUTOMATION = "Appium";
+        public static final String NAME_AUTOMATION = "uiautomator2";
     }
 
     public static class ValidCredo {
