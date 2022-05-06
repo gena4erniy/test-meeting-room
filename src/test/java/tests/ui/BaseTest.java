@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import ui.pages.*;
+
 import static ui.constants.Constant.ValidCredo.VALID_MAIL;
 import static ui.constants.Constant.ValidCredo.VALID_PASS;
 import static ui.pages.BasePage.capabilities;
