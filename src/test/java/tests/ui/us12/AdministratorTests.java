@@ -81,20 +81,6 @@ public class AdministratorTests extends BaseTest {
     }
 
 
-
-
-//    @Test
-//    public void notManageEventsAdmin() {
-//        driver.findElement(locationchoose.getSelectLoc()).click();
-//        driver.findElement(countriesPage.getSelectUkraine()).click();
-//        driver.findElement(ukranianCitiesChoose.getButtonKiev()).click();
-//        driver.findElement(locationchoose.getNextButton()).click();
-//        driver.findElement(mySpacePage.getRoomsImage()).click();
-//        driver.findElement(mySpacePage.getChooseDataButton()).click();
-//        driver.findElement(mySpacePage.getChooseEventButton()).click();
-//
-//    }
-
     @AfterClass
     public void closeDriver() {
         driver.quit();
