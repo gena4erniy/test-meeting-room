@@ -7,10 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import ui.pages.*;
 
-import static ui.constants.Constant.ValidCredo.VALID_MAIL;
-import static ui.constants.Constant.ValidCredo.VALID_PASS;
-import static ui.constants.Constant.ValidNoEventRoomCredo.VALID_MAIL_NO_EVENT_ROOM;
-import static ui.constants.Constant.ValidNoEventRoomCredo.VALID_PASS_NO_EVENT_ROOM;
+import static ui.constants.Constant.ValidCredo.*;
 import static ui.pages.BasePage.capabilities;
 
 public class BaseTest {
@@ -32,11 +29,13 @@ public class BaseTest {
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
     }
 
+    @SneakyThrows
     public void authorizationAdmin() {
+        driver = capabilities();
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_ADMIN);
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS_ADMIN);
-        Assert.assertTrue(driver.findElement(authorizationPage.getButtonLogin()).isEnabled(), "Element Login isn't active");
         driver.findElement(authorizationPage.getButtonLogin()).click();
+        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login for admin is not succeed");
     }
 
     @SneakyThrows
