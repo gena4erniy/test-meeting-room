@@ -55,6 +55,7 @@ public class DisplayingLocationScreenTests extends BaseTest {
         Assert.assertEquals(driver.findElement(countriesPage.getSelectRussia()).getText(), "Russia");
         Assert.assertEquals(driver.findElement(countriesPage.getSelectBelarus()).getText(), "Belarus");
         Assert.assertEquals(driver.findElement(countriesPage.getLocationText()).getText(), "Location");
+        Assert.assertTrue(driver.findElement(countriesPage.getBackButton()).isEnabled());
 
     }
     @Owner("Sirozh E.")
