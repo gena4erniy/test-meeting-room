@@ -30,10 +30,8 @@ public class CheckMailLenth {
         authorizationPage = new AuthorizationPage();
     }
 
-
     @AfterClass
     public void closeDriver() {driver.quit();}
-
 
     @Owner("Kudayeu S.")
     @TmsLink("5634050")
@@ -43,7 +41,5 @@ public class CheckMailLenth {
         Assert.assertTrue(driver.findElement(authorizationPage.getMaxMail()).isDisplayed(), "Something is wrong");
         driver.findElement(authorizationPage.getMaxMail()).sendKeys(MORE_MAX_MAIL);
         Assert.assertTrue(driver.findElement(authorizationPage.getMaxMail()).isDisplayed(), "Something is wrong");
-
-
     }
 }

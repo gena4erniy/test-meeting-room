@@ -14,6 +14,8 @@ import static ui.pages.BasePage.capabilities;
 public class BaseTest {
     private AuthorizationPage authorizationPage = new AuthorizationPage();
     private LocationChoose locationchoose = new LocationChoose();
+    private MySpacePage mySpacePage = new MySpacePage();
+    private ModifyEventPage modifyEventPage = new ModifyEventPage();
     public AndroidDriver<AndroidElement> driver;
 
     public BaseTest() {
@@ -26,6 +28,13 @@ public class BaseTest {
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS);
         driver.findElement(authorizationPage.getButtonLogin()).click();
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
+    }
+
+    public void setTimeToReminder() {
+        driver.findElement(mySpacePage.getEventCard()).click();
+        driver.findElement(modifyEventPage.getReminder()).click();
+        driver.findElement(modifyEventPage.getReminder5Min()).click();
+        driver.findElement(modifyEventPage.getSave()).click();
     }
 
     @AfterClass
