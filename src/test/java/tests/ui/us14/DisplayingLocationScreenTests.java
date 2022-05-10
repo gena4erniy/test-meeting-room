@@ -39,35 +39,26 @@ public class DisplayingLocationScreenTests extends BaseTest {
 
     @Owner("Sirozh E.")
     @TmsLink("5629437")
-    @Test(description = "The Select location matches to mockup. (Kiev by default?)")
+    @Test(description = "Pay attention on the Select location screen , Tap on Cascading menu and pay attention on result , \\n\" +" +
+            "Tap on any country (ex: Ukraine) and pay attention on result")
     public void checkLocationChoosePage() {
+        driver.findElement(locationchoose.getSelectButton()).click();
+        driver.findElement(countriesPage.getSelectUkraine()).click();
+        driver.findElement(ukranianCitiesChoose.getButtonKiev()).click();
         Assert.assertTrue(driver.findElement(locationchoose.getNextButton()).getText().equals("NEXT"));
         Assert.assertTrue(driver.findElement(locationchoose.getCityName()).getText().equals("Kiev"));
-
-    }
-
-    @Owner("Sirozh E.")
-    @TmsLink("5629437")
-    @Test(description = "The List of countries page matches to mockup.")
-    public void checkCountryPage() {
         driver.findElement(locationchoose.getSelectButton()).click();
         Assert.assertEquals(driver.findElement(countriesPage.getSelectUkraine()).getText(), "Ukraine");
         Assert.assertEquals(driver.findElement(countriesPage.getSelectRussia()).getText(), "Russia");
         Assert.assertEquals(driver.findElement(countriesPage.getSelectBelarus()).getText(), "Belarus");
         Assert.assertEquals(driver.findElement(countriesPage.getLocationText()).getText(), "Location");
         Assert.assertTrue(driver.findElement(countriesPage.getBackButton()).isEnabled());
-
-    }
-    @Owner("Sirozh E.")
-    @TmsLink("5629437")
-    @Test(description = "The List of cities page matches to mockup.")
-    public void checkBelarusCityChoose() {
-        driver.findElement(locationchoose.getSelectButton()).click();
         driver.findElement(countriesPage.getSelectBelarus()).click();
         Assert.assertEquals(driver.findElement(belarusCitiesChoose.getButtonGomel()).getText(), "Gomel");
         Assert.assertEquals(driver.findElement(belarusCitiesChoose.getButtonMinsk()).getText(), "Minsk");
         Assert.assertTrue(driver.findElement(belarusCitiesChoose.getButtonBack()).isEnabled());
 
     }
+
 
 }

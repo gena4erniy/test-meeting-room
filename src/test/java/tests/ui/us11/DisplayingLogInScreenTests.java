@@ -46,32 +46,15 @@ public class DisplayingLogInScreenTests {
             Assert.assertTrue( driver.findElement(authorizationPage.getPasswordInput()).isDisplayed(),"Element Password isn't displayed");
             Assert.assertTrue(driver.findElement(authorizationPage.getEyeIcon()).isDisplayed(),"Element Eye isn't displayed");
             Assert.assertTrue( driver.findElement(authorizationPage.getButtonLogin()).isDisplayed(),"Element Login isn't displayed");
-        }
-
-        @Test
-        public void checkEmailText() {
             Assert.assertTrue(driver.findElement(authorizationPage.getEmailInput()).getText().equals("E-mail"),"Text \"E-mail\" isn't displayed");
-        }
-
-        @Test
-        public void checkPasswordText() {
             Assert.assertTrue(driver.findElement(authorizationPage.getPasswordInput()).getText().equals("Password"),"Text \"Password\" isn't displayed");
-        }
-
-        @Test
-        public void checkEyeIsActive() {
             String pass = "test";
             driver.findElement(authorizationPage.getPasswordInput()).sendKeys(pass);
             Assert.assertTrue(driver.findElement(authorizationPage.getEyeIcon()).isEnabled(),"Element Eye isn't active");
             String elem = driver.findElement(By.xpath("//android.view.ViewGroup[2]")).getText();
             Assert.assertFalse(elem.equals(pass),"Password is displayed");
-
-        }
-
-        @Test
-        public void checkLoginIsActive() {
             Assert.assertFalse(driver.findElement(authorizationPage.getButtonLogin()).isEnabled(),"Element Login isn't active");
-
         }
+
     }
 

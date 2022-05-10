@@ -17,7 +17,7 @@ import java.net.MalformedURLException;
 
 @Epic("Login")
 @Feature("US 1.2")
-public class AdministratorTests extends BaseTest {
+public class AdministratorNotManageEventsOfOtherOfficesTests extends BaseTest {
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
     private UkranianCitiesChoose ukranianCitiesChoose;
@@ -26,7 +26,7 @@ public class AdministratorTests extends BaseTest {
     private MySpacePage mySpacePage;
     private RoomsPage roomsPage;
 
-    public AdministratorTests() throws MalformedURLException {
+    public AdministratorNotManageEventsOfOtherOfficesTests() throws MalformedURLException {
     }
 
     @BeforeClass
@@ -44,42 +44,21 @@ public class AdministratorTests extends BaseTest {
 
     @Owner("Sirozh E.")
     @TmsLink("5639663")
-    @Test(description = "Select location page is displayed")
+    @Test(description = "Select location page is displayed , Administrator can't manage a selected event card")
     public void openPageSelectLocation() {
-        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "ldldldld");
-    }
-
-    @Owner("Sirozh E.")
-    @TmsLink("5639663")
-    @Test(description = "Office is displayed in the Cascading menu")
-    public void checkOfficeDisplayedInMenu() {
+        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed());
         driver.findElement(locationchoose.getSelectButton()).click();
         driver.findElement(countriesPage.getSelectUkraine()).click();
         driver.findElement(ukranianCitiesChoose.getButtonKiev()).click();
-        Assert.assertTrue(driver.findElement(locationchoose.getCityName()).getText().equals("Kiev"), "hhhhhhh");
-    }
-
-    @Owner("Sirozh E.")
-    @TmsLink("5639663")
-    @Test(description = "My space page is displayed")
-    public void checkOpenSpacePage() {
-        checkOfficeDisplayedInMenu();
+        Assert.assertTrue(driver.findElement(locationchoose.getCityName()).getText().equals("Kiev"));
         driver.findElement(locationchoose.getNextButton()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getMySpaceTitle()).getText().equals("My space"));
-    }
-
-    @Owner("Sirozh E.")
-    @TmsLink("5639663")
-    @Test(description = "Administrator can't magane a selected event card")
-    public void checkAdminCanNotManageEvent() {
-        checkOpenSpacePage();
         driver.findElement(mySpacePage.getRoomsTitle()).click();
-        driver.findElement(roomsPage.getNextDate()).click();
+//        driver.findElement(roomsPage.getNextDate()).click();помогите решить с датами
         driver.findElement(roomsPage.getChoseDate()).click();
         driver.findElement(roomsPage.getChoseEvent()).click();
         Assert.assertFalse(driver.findElement(roomsPage.getEventCard()).isSelected());
     }
-
 
     @AfterClass
     public void closeDriver() {

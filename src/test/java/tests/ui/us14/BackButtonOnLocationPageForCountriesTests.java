@@ -6,26 +6,24 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tests.ui.BaseTest;
 import ui.pages.*;
 
 import java.net.MalformedURLException;
 
-
 @Epic("Login")
 @Feature("US 1.4")
-public class ChooseOfficeTests extends BaseTest {
+public class BackButtonOnLocationPageForCountriesTests extends BaseTest {
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
     private UkranianCitiesChoose ukranianCitiesChoose;
     private RussianCitiesChoose russianCitiesChoose;
     private CountriesPage countriesPage;
+    private MySpacePage mySpacePage;
 
 
-
-    public ChooseOfficeTests() throws MalformedURLException {
+    public BackButtonOnLocationPageForCountriesTests() throws MalformedURLException {
     }
 
     @BeforeClass
@@ -36,35 +34,20 @@ public class ChooseOfficeTests extends BaseTest {
         ukranianCitiesChoose = new UkranianCitiesChoose();
         russianCitiesChoose = new RussianCitiesChoose();
         countriesPage = new CountriesPage();
+        mySpacePage = new MySpacePage();
         driver.findElement(locationchoose.getSelectButton()).click();
 
     }
 
-
     @Owner("Sirozh E.")
-    @TmsLink("5633226")
-    @Test(description = "The List of countries is displayed")
-    public void checkListCountriesIsDisplayed() {
+    @TmsLink("5630744")
+    @Test(description = "The countrie is displayed , Tap on Back button , Select your location page is displayed")
+    public void checkCountry() {
         Assert.assertEquals(driver.findElement(countriesPage.getSelectUkraine()).getText(), "Ukraine");
         Assert.assertEquals(driver.findElement(countriesPage.getSelectRussia()).getText(), "Russia");
         Assert.assertEquals(driver.findElement(countriesPage.getSelectBelarus()).getText(), "Belarus");
-    }
-    @Owner("Sirozh E.")
-    @TmsLink("5633226")
-    @Test (description = "The List of cities of that country is displayed")
-    public void selectCountry() {
-        driver.findElement(countriesPage.getSelectBelarus()).click();
-        Assert.assertEquals(driver.findElement(belarusCitiesChoose.getButtonGomel()).getText(), "Gomel");
-        Assert.assertEquals(driver.findElement(belarusCitiesChoose.getButtonMinsk()).getText(), "Minsk");
-    }
+        driver.findElement(countriesPage.getBackButton()).click();
+        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed());
 
-    @Owner("Sirozh E.")
-    @TmsLink("5633226")
-    @Test(description = "The List of countries is displayed")
-    public void selectMoreThenOneOffice() {
-        selectCountry();
-        if (driver.findElement(belarusCitiesChoose.getButtonMinsk()).isSelected() && driver.findElement(belarusCitiesChoose.getButtonGomel()).isSelected()) {
-            Assert.fail("выбраны все варики");
-        }
     }
 }

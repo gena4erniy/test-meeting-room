@@ -12,18 +12,18 @@ import ui.pages.*;
 
 import java.net.MalformedURLException;
 
+
 @Epic("Login")
 @Feature("US 1.4")
-public class WorkBackButtonTests extends BaseTest {
+public class SelectMoreThanOneOfficesTests extends BaseTest {
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
     private UkranianCitiesChoose ukranianCitiesChoose;
     private RussianCitiesChoose russianCitiesChoose;
     private CountriesPage countriesPage;
-    private MySpacePage mySpacePage;
 
 
-    public WorkBackButtonTests() throws MalformedURLException {
+    public SelectMoreThanOneOfficesTests() throws MalformedURLException {
     }
 
     @BeforeClass
@@ -34,26 +34,25 @@ public class WorkBackButtonTests extends BaseTest {
         ukranianCitiesChoose = new UkranianCitiesChoose();
         russianCitiesChoose = new RussianCitiesChoose();
         countriesPage = new CountriesPage();
-        mySpacePage = new MySpacePage();
         driver.findElement(locationchoose.getSelectButton()).click();
 
     }
 
+
     @Owner("Sirozh E.")
-    @TmsLink("5630744")
-    @Test(description = "The countrie is displayed")
-    public void checkCountry() {
+    @TmsLink("5633226")
+    @Test(description = "User cannot select more then one city for the location of the office\n" +
+            "The Select location is dispalyed after tapping on the city")
+    public void checkListCountriesIsDisplayed() {
         Assert.assertEquals(driver.findElement(countriesPage.getSelectUkraine()).getText(), "Ukraine");
         Assert.assertEquals(driver.findElement(countriesPage.getSelectRussia()).getText(), "Russia");
         Assert.assertEquals(driver.findElement(countriesPage.getSelectBelarus()).getText(), "Belarus");
-
+        driver.findElement(countriesPage.getSelectBelarus()).click();
+        Assert.assertEquals(driver.findElement(belarusCitiesChoose.getButtonGomel()).getText(), "Gomel");
+        Assert.assertEquals(driver.findElement(belarusCitiesChoose.getButtonMinsk()).getText(), "Minsk");
+        if (driver.findElement(belarusCitiesChoose.getButtonMinsk()).isSelected() && driver.findElement(belarusCitiesChoose.getButtonGomel()).isSelected()) {
+            Assert.fail("выбраны все варики");
+        }
     }
 
-    @Owner("Sirozh E.")
-    @TmsLink("5630744")
-    @Test(description = "Tap on Back button, Select your location page is displayed")
-    public void checkWorkBackButton() {
-        driver.findElement(countriesPage.getBackButton()).click();
-        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed());
-    }
 }

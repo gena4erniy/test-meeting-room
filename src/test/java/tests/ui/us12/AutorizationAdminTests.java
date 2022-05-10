@@ -33,7 +33,7 @@ public class AutorizationAdminTests extends BaseTest {
 
     @Owner("Sirozh E.")
     @TmsLink("5639663")
-    @Test(description = "Data is displayed in the field, \"Log in\" button is active")
+    @Test(description = "Data is displayed in the field, Log in button is active")
     public void checkAuthorizationAdmin() throws MalformedURLException {
         driver = capabilities();
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_ADMIN);
