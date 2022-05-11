@@ -26,7 +26,7 @@ public class TapOnEventTitleHistoryTest extends BaseTest {
     @TmsLink("5628136")
     @Test(description = "Verify that event card contains: 'Event title', 'Event start-end time', 'Event date', 'Event room', 'Event owner name', 'Event owner position', 'Event owner Skype ID', 'Event owner e-mail', 'Event description'.   ")
     public void TapOnEventTitleHistoryTest() {
-        driver.findElement(mySpacePage.getEventCard()).click();
+        driver.findElement(mySpacePage.getEventTitle()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getEventCard()).isDisplayed() && driver.findElement(mySpacePage.getEventTitle()).isDisplayed() &&
                 driver.findElement(mySpacePage.getEventTime()).isDisplayed() && driver.findElement(mySpacePage.getEventDate()).isDisplayed() &&
                 driver.findElement(mySpacePage.getEventRoom()).isDisplayed() && driver.findElement(mySpacePage.getNameOfBooker()).isDisplayed() &&

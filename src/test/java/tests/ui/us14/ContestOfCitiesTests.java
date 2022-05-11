@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
+import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
