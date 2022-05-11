@@ -4,14 +4,11 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
-import lombok.SneakyThrows;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import tests.ui.BaseTest;
 import ui.pages.*;
-
-import java.net.MalformedURLException;
 
 @Epic("Login")
 @Feature("US 1.4")
@@ -19,7 +16,7 @@ public class ContentOfTheListOfCountriesTest extends BaseTest {
     private LocationChoose locationchoose;
     private CountriesPage countriesPage;
 
-    public ContentOfTheListOfCountriesTest() throws MalformedURLException {
+    public ContentOfTheListOfCountriesTest(){
     }
 
     @BeforeClass

@@ -11,8 +11,6 @@ import org.testng.annotations.Test;
 import tests.ui.BaseTest;
 import ui.pages.*;
 
-import java.net.MalformedURLException;
-
 @Epic("Login")
 @Feature("US 1.4")
 public class DoubleTapOnNextButtonTest extends BaseTest {
@@ -21,7 +19,7 @@ public class DoubleTapOnNextButtonTest extends BaseTest {
     private CountriesPage countriesPage;
     private MySpacePage mySpacePage;
 
-    public DoubleTapOnNextButtonTest() throws MalformedURLException {
+    public DoubleTapOnNextButtonTest() {
     }
 
     @BeforeClass

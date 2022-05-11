@@ -28,11 +28,8 @@ public class AuthEmptyFields {
         authorizationPage = new AuthorizationPage();
     }
 
-
     @AfterClass
     public void closeDriver() {driver.quit();}
-
-
 
     @Owner("Kudayeu S.")
     @TmsLink("5628125")

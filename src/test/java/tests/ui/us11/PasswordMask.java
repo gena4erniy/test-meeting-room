@@ -29,7 +29,6 @@ public class PasswordMask {
         authorizationPage = new AuthorizationPage();
     }
 
-
     @AfterClass
     public void closeDriver() {driver.quit();}
 

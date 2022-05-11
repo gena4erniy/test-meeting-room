@@ -34,17 +34,13 @@ public class AuthorInvalPass {
         locationchoose = new LocationChoose();
     }
 
-
     @AfterClass
     public void closeDriver() {driver.quit();}
-
-
 
     @Owner("Kudayeu S.")
     @TmsLink("5628568")
     @Test(description = "User autorization using valid e-mail and invalid password")
     public void authorizationInvalPass(){
-
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL);
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(INVALID_PASS);
         driver.findElement(authorizationPage.getButtonLogin()).click();
