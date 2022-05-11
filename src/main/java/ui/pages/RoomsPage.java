@@ -11,5 +11,4 @@ public class RoomsPage {
     private final By choseDate13 = By.xpath("//android.widget.CheckedTextView[@content-desc='13']");
 
  private final By eventCard = By.id("com.andersenlab.meeting_room.debug:id/event_card_upcoming_root");
-
  }
