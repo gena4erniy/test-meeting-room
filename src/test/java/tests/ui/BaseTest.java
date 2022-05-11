@@ -9,6 +9,8 @@ import ui.pages.*;
 
 import static ui.constants.Constant.ValidCredo.VALID_MAIL;
 import static ui.constants.Constant.ValidCredo.VALID_PASS;
+import static ui.constants.Constant.ValidNoEventRoomCredo.VALID_MAIL_NO_EVENT_ROOM;
+import static ui.constants.Constant.ValidNoEventRoomCredo.VALID_PASS_NO_EVENT_ROOM;
 import static ui.pages.BasePage.capabilities;
 
 public class BaseTest {
@@ -26,6 +28,15 @@ public class BaseTest {
         driver = capabilities();
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL);
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS);
+        driver.findElement(authorizationPage.getButtonLogin()).click();
+        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
+    }
+
+    @SneakyThrows
+    public void authorizationWithNoEvents(){
+        driver = capabilities();
+        driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_NO_EVENT_ROOM);
+        driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS_NO_EVENT_ROOM);
         driver.findElement(authorizationPage.getButtonLogin()).click();
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
     }

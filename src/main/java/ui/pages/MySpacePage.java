@@ -1,7 +1,9 @@
 package ui.pages;
 
+import lombok.Getter;
 import org.openqa.selenium.By;
 
+@Getter
 public class MySpacePage {
     private final By mySpaceTitle = By.xpath("//android.widget.TextView[@text = 'My space']");
     private final By settingsButton = By.id("mrtoolbar_icon");
@@ -14,53 +16,10 @@ public class MySpacePage {
     private final By eventDate = By.id("event_planned_date_upcoming");
     private final By eventRoom = By.id("event_room_upcoming");
     private final By reminderBell = By.id("event_reminder_bell_upcoming");
-    private final By reminderTime=By.id("event_reminder_counter_upcoming");
-
-    public By getMySpaceTitle() {
-        return mySpaceTitle;
-    }
-
-    public By getEventCard() {
-        return eventCard;
-    }
-
-    public By getEventTitle() {
-        return eventTitle;
-    }
-
-    public By getEventTime() {
-        return eventTime;
-    }
-
-    public By getEventDate() {
-        return eventDate;
-    }
-
-    public By getEventRoom() {
-        return eventRoom;
-    }
-
-    public By getReminderBell() {
-        return reminderBell;
-    }
-
-    public By getReminderTime() {
-        return reminderTime;
-    }
-
-    public By getSettingsButton() {
-        return settingsButton;
-    }
-
-    public By getLocationSettings() {
-        return locationSettings;
-    }
-
-    public By getUpcomingTab() {
-        return upcomingTab;
-    }
-
-    public By getHistoryTab() {
-        return historyTab;
-    }
+    private final By reminderTime = By.id("event_reminder_counter_upcoming");
+    private final By noEventMessage = By.xpath("//android.widget.TextView[@text = 'No events booked in the last 10 days']");
+    private final By nameOfBooker = By.id("name_of_booker");
+    private final By roleOFBooker = By.id("role_of_booker");
+    private final By bookerEmail = By.id("booker_email");
+    private final By bookerSkype = By.id("booker_skype");
 }

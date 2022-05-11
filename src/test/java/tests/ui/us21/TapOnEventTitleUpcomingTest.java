@@ -31,6 +31,6 @@ public class TapOnEventTitleUpcomingTest extends BaseTest {
         Assert.assertTrue(driver.findElement(mySpacePage.getEventTitle()).isDisplayed() && driver.findElement(mySpacePage.getEventTime()).isDisplayed() &&
                 driver.findElement(mySpacePage.getEventDate()).isDisplayed() && driver.findElement(mySpacePage.getEventRoom()).isDisplayed(), "Event title not contains: 'Event title', 'Event start-end time', 'Event date', 'Event room'.");
         driver.findElement(mySpacePage.getEventCard()).click();
-        Assert.assertTrue(driver.findElement(modifyEventPage.getPageTitle()).isDisplayed(),"Modify Event screen for that booking is displayed");
+        Assert.assertTrue(driver.findElement(modifyEventPage.getPageTitle()).isDisplayed(),"Modify Event screen for that booking is not displayed");
     }
 }
