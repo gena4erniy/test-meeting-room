@@ -1,4 +1,4 @@
-package tests.ui.us22;
+package tests.ui.us21;
 
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
@@ -9,7 +9,7 @@ import tests.ui.BaseTest;
 import ui.pages.LocationChoose;
 import ui.pages.MySpacePage;
 
-public class DisplayingMyScreenHistoryWhenThereAreNoPastEventsTest extends BaseTest {
+public class DisplayingUpcomingScreenWhenThereAreNoEventsTest extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
 
@@ -21,12 +21,10 @@ public class DisplayingMyScreenHistoryWhenThereAreNoPastEventsTest extends BaseT
     }
 
     @Owner("Vaskovich K.")
-    @TmsLink("5628140")
+    @TmsLink("5628133")
     @Test(description = "Verify that no events booked in the last 10 days.")
-    public void DisplayingMyScreenHistoryWhenThereAreNoPastEventsTest() {
+    public void DisplayingUpcomingScreenWhenThereAreNoEventsTest() {
         driver.findElement(locationchoose.getNextButton()).click();
-        Assert.assertTrue(driver.findElement(mySpacePage.getUpcomingTab()).isSelected(),"The Upcoming control not displays in active mode by default.");
-        driver.findElement(mySpacePage.getHistoryTab()).click();
-        Assert.assertTrue(driver.findElement(mySpacePage.getNoEventMessageHistoryTab()).isDisplayed(),"No events booked in the last 10 days is not displayed on Tiles List Placeholder.");
+        Assert.assertTrue(driver.findElement(mySpacePage.getNoEventsMessageUpcomingTab()).isDisplayed(),"No events booked");
     }
 }

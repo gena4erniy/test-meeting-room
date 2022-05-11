@@ -33,5 +33,4 @@ public class TapOnEventTitleHistoryTest extends BaseTest {
                 driver.findElement(mySpacePage.getRoleOFBooker()).isDisplayed() && driver.findElement(mySpacePage.getBookerSkype()).isDisplayed() &&
                 driver.findElement(mySpacePage.getBookerEmail()).isDisplayed(), "Event card not contains: 'Event title', 'Event start-end time', 'Event date', 'Event room', 'Event owner name', 'Event owner position', 'Event owner Skype ID', 'Event owner e-mail', 'Event description'.    ");
     }
-
 }

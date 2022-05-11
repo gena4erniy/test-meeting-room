@@ -17,7 +17,8 @@ public class MySpacePage {
     private final By eventRoom = By.id("event_room_upcoming");
     private final By reminderBell = By.id("event_reminder_bell_upcoming");
     private final By reminderTime = By.id("event_reminder_counter_upcoming");
-    private final By noEventMessage = By.xpath("//android.widget.TextView[@text = 'No events booked in the last 10 days']");
+    private final By noEventMessageHistoryTab = By.xpath("//android.widget.TextView[@text = 'No events booked in the last 10 days']");
+    private final By noEventsMessageUpcomingTab=By.xpath("//android.widget.TextView[@text = 'It feels lonely in here.']");
     private final By nameOfBooker = By.id("name_of_booker");
     private final By roleOFBooker = By.id("role_of_booker");
     private final By bookerEmail = By.id("booker_email");
