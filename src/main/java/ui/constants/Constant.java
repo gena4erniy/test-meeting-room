@@ -23,7 +23,10 @@ public class Constant {
 
         public static final String VALID_MAIL_ADMIN = "n.ermakov@andersenlab.com";
         public static final String VALID_PASS_ADMIN = "helloworld";
-
+    }
+    public static class ValidNoEventRoomCredo{
+        public static final String VALID_MAIL_NO_EVENT_ROOM = "user8@gmail.com";
+        public static final String VALID_PASS_NO_EVENT_ROOM = "8888";
     }
 
     public static class ValidNoEventRoomCredo{
