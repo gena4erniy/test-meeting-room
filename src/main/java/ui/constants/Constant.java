@@ -20,13 +20,14 @@ public class Constant {
     public static class ValidCredo {
         public static final String VALID_MAIL = "user1@gmail.com";
         public static final String VALID_PASS = "1111";
-    }
 
+        public static final String VALID_MAIL_ADMIN = "n.ermakov@andersenlab.com";
+        public static final String VALID_PASS_ADMIN = "helloworld";
+    }
     public static class ValidNoEventRoomCredo{
         public static final String VALID_MAIL_NO_EVENT_ROOM = "user8@gmail.com";
         public static final String VALID_PASS_NO_EVENT_ROOM = "8888";
     }
-
     public static class ValidCredoSpace {
         public static final String VALID_MAIL_SPACE = "user1 @gmail.com";
         public static final String VALID_PASS_SPACE = "11 11";
