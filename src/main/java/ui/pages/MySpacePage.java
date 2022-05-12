@@ -23,4 +23,5 @@ public class MySpacePage {
     private final By roleOFBooker = By.id("role_of_booker");
     private final By bookerEmail = By.id("booker_email");
     private final By bookerSkype = By.id("booker_skype");
+    private final By roomsTitle = By.xpath("//android.widget.FrameLayout[@content-desc='Rooms']/android.widget.ImageView");
 }

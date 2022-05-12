@@ -47,15 +47,6 @@ public class BaseTest {
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login for admin is not succeed");
     }
 
-    @SneakyThrows
-    public void authorizationWithNoEvents(){
-        driver = capabilities();
-        driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_NO_EVENT_ROOM);
-        driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS_NO_EVENT_ROOM);
-        driver.findElement(authorizationPage.getButtonLogin()).click();
-        Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
-    }
-
     public void setTimeToReminder() {
         driver.findElement(mySpacePage.getEventCard()).click();
         driver.findElement(modifyEventPage.getReminder()).click();
