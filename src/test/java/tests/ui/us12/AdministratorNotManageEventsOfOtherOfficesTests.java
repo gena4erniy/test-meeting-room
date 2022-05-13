@@ -65,4 +65,3 @@ public class AdministratorNotManageEventsOfOtherOfficesTests extends BaseTest {
         driver.quit();
     }
 }
-
