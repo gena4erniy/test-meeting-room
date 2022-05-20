@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 @Getter
 public class MySpacePage {
+
     private final By mySpaceTitle = By.xpath("//android.widget.TextView[@text = 'My space']");
     private final By settingsButton = By.id("mrtoolbar_icon");
     private final By locationSettings = By.id("popup_local_settings");
@@ -24,4 +25,10 @@ public class MySpacePage {
     private final By bookerEmail = By.id("booker_email");
     private final By bookerSkype = By.id("booker_skype");
     private final By roomsTitle = By.xpath("//android.widget.FrameLayout[@content-desc='Rooms']/android.widget.ImageView");
+    private final By buttonCopy = By.id("text_copy_click");
+    private final By notificationOfBookedEvents = By.xpath("//android.widget.TextView[@text = 'Events booked in the last 10 days']");
+    private final By mailIconImage = By.id("mail_icon_image");
+
+
+
 }
