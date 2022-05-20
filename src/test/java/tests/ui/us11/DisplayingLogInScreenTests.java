@@ -37,7 +37,7 @@ public class DisplayingLogInScreenTests {
 
         @Owner("Sirozh E.")
         @TmsLink("5628566")
-        @Test
+        @Test(description = "The Login screen matches to mockup , By default, the Password and Email field shows text in the box")
         public void checkLoginScreenFieldsTest() {
             Assert.assertTrue(driver.findElement(authorizationPage.getLogoImg()).isDisplayed(),"Element Andersen Label isn't displayed");
             Assert.assertTrue( driver.findElement(authorizationPage.getTextOffice()).isDisplayed(),"Element Office Assistant isn't displayed");

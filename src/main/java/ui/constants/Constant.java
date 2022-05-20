@@ -28,7 +28,7 @@ public class Constant {
         public static final String VALID_MAIL_NO_EVENT_ROOM = "user8@gmail.com";
         public static final String VALID_PASS_NO_EVENT_ROOM = "8888";
     }
-    public static class ValidCredoSpace {
+     public static class ValidCredoSpace {
         public static final String VALID_MAIL_SPACE = "user1 @gmail.com";
         public static final String VALID_PASS_SPACE = "11 11";
     }

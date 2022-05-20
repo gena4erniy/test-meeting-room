@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import ui.pages.*;
+import ui.pages.modifyEvent.ModifyEventPage;
 
 import static ui.constants.Constant.ValidCredo.*;
 import static ui.constants.Constant.ValidNoEventRoomCredo.VALID_MAIL_NO_EVENT_ROOM;
@@ -30,14 +31,16 @@ public class BaseTest {
         driver.findElement(authorizationPage.getButtonLogin()).click();
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
     }
+
     @SneakyThrows
-    public void authorizationWithNoEvents(){
+    public void authorizationWithNoEvents() {
         driver = capabilities();
         driver.findElement(authorizationPage.getEmailInput()).sendKeys(VALID_MAIL_NO_EVENT_ROOM);
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS_NO_EVENT_ROOM);
         driver.findElement(authorizationPage.getButtonLogin()).click();
         Assert.assertTrue(driver.findElement(locationchoose.getSelectLoc()).isDisplayed(), "Login is not succeed");
     }
+
     @SneakyThrows
     public void authorizationAdmin() {
         driver = capabilities();
