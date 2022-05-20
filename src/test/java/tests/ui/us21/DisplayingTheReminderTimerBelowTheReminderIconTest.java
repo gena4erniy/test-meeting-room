@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import tests.ui.BaseTest;
 import ui.pages.*;
+import ui.pages.modifyEvent.ModifyEventPage;
 
 public class DisplayingTheReminderTimerBelowTheReminderIconTest extends BaseTest {
     private LocationChoose locationchoose;
