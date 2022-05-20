@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UI" parallel="classes">
+    <test name="US11" parallel="classes">
+        <packages>
+            <package name="tests/us11"/>
+        </packages>
+    </test>
+    <test name="US12" parallel="classes">
+        <packages>
+            <package name="tests/us12"/>
+        </packages>
+    </test>
+    <test name="US14" parallel="classes">
+        <packages>
+            <package name="tests/us14"/>
+        </packages>
+    </test>
+    <test name="US21" parallel="classes">
+        <packages>
+            <package name="tests/us21"/>
+        </packages>
+    </test>
+    <test name="US22" parallel="classes">
+        <packages>
+            <package name="tests/us22"/>
+        </packages>
+    </test>
+    <test name="US31" parallel="classes">
+        <packages>
+            <package name="tests/us31"/>
+        </packages>
+    </test>
+</suite>
