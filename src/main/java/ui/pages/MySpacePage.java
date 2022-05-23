@@ -28,7 +28,7 @@ public class MySpacePage {
     private final By buttonCopy = By.id("text_copy_click");
     private final By notificationOfBookedEvents = By.xpath("//android.widget.TextView[@text = 'Events booked in the last 10 days']");
     private final By mailIconImage = By.id("mail_icon_image");
-
-
+    private final By popupSwitchDarkTheme = By.id("popup_switch_dark_theme");
+    private final By popupLogOut = By.id("popup_log_out");
 
 }
