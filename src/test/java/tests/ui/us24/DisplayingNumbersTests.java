@@ -11,8 +11,6 @@ import ui.pages.modifyEvent.CustomReminderPage;
 import ui.pages.modifyEvent.ModifyEventPage;
 import ui.pages.modifyEvent.ModifyReminderPage;
 
-import java.net.MalformedURLException;
-
 public class DisplayingNumbersTests extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
@@ -21,7 +19,7 @@ public class DisplayingNumbersTests extends BaseTest {
     private CustomReminderPage customReminderPage;
 
     @BeforeClass
-    private void preconditions() throws MalformedURLException {
+    private void preconditions(){
         authorization();
         locationchoose = new LocationChoose();
         mySpacePage = new MySpacePage();
@@ -30,7 +28,6 @@ public class DisplayingNumbersTests extends BaseTest {
         customReminderPage = new CustomReminderPage();
         driver.findElement(locationchoose.getNextButton()).click();
         driver.findElement(mySpacePage.getEventTitle()).click();
-
     }
 
     @Owner("Sirozh E.")
@@ -45,8 +42,5 @@ public class DisplayingNumbersTests extends BaseTest {
         driver.findElement(customReminderPage.getInputTime()).click();
         //При нажатии отображается цифровая клавиатура "Цифры, кнопка обратного пробела".
         //не инспектируется
-
-
-
     }
 }

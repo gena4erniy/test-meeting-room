@@ -30,7 +30,7 @@ public class GetInfoAuthUserTests {
         assertThat(responseGetInfoAuthUser.getInt("Status Code")).isEqualTo(200);
 
         SoftAssert asserts = new SoftAssert();
-        asserts.assertEquals(responseGetInfoAuthUser.getInt("id"), 1);
+        asserts.assertEquals(responseGetInfoAuthUser.getInt("id"), "sss");
         asserts.assertEquals(responseGetInfoAuthUser.getString("email"), VALID_MAIL);
         asserts.assertEquals(responseGetInfoAuthUser.getString("name"), "Andrei");
         asserts.assertEquals(responseGetInfoAuthUser.getString("position"), "PM");
