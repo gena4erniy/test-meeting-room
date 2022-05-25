@@ -15,6 +15,7 @@ public class CopyingTheEmailToClipboardTest extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
 
+
     @BeforeClass
     private void precondition() {
         authorization();
@@ -30,10 +31,11 @@ public class CopyingTheEmailToClipboardTest extends BaseTest {
     public void TapOnEventTitleHistoryTest() {
         driver.findElement(mySpacePage.getEventTitle()).click();
         Assert.assertEquals(driver.findElement(mySpacePage.getNotificationOfBookedEvents()).getText(), "Events booked in the last 10 days");
-        driver.findElements(mySpacePage.getEventCard()).get(1).click();
+        driver.findElements(mySpacePage.getEventCard()).get(0).click();
+        driver.findElements(mySpacePage.getEventCard()).get(0).click();
         Assert.assertEquals(driver.findElement(mySpacePage.getBookerEmail()).getText(), Constant.ValidCredo.VALID_MAIL);
-        Assert.assertTrue(driver.findElement(mySpacePage.getMailIconImage()).isDisplayed(),"The image of the mail icon is missing");
-        driver.findElements(mySpacePage.getBookerEmail()).get(1).click();
+        Assert.assertTrue(driver.findElement(mySpacePage.getMailIconImage()).isDisplayed(), "The image of the mail icon is missing");
+        driver.findElement(mySpacePage.getBookerEmail()).click();
         driver.findElement(mySpacePage.getButtonCopy()).click();
 
     }

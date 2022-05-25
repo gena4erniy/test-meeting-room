@@ -27,7 +27,10 @@ public class SwitchingThemeColourInPullDownMenu extends BaseTest {
     public void switchingTheThemeColorTest() {
 
         driver.findElement(mySpacePage.getSettingsButton()).click();
-        Assert.assertTrue(driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).isDisplayed(), "The dark theme switching popup is enabled");
+        Assert.assertTrue(driver.findElement(mySpacePage.getLocationSettings()).isDisplayed()
+                        && driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).isDisplayed()
+                        && driver.findElement(mySpacePage.getPopupLogOut()).isDisplayed(),
+                "The drop-down menu is displayed incorrectly");
         driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).click();
         driver.findElement(mySpacePage.getSettingsButton()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).isEnabled(), "The dark theme switching popup is not enabled");
