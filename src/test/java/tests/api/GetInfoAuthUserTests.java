@@ -29,7 +29,7 @@ public class GetInfoAuthUserTests {
         JSONObject responseGetInfoAuthUser = meetingRoomClient.getCall(USERS_ME);
         assertThat(responseGetInfoAuthUser.getInt("Status Code")).isEqualTo(200);
 
-        SoftAssert asserts = new SoftAssert();
+       SoftAssert asserts = new SoftAssert();
         asserts.assertEquals(responseGetInfoAuthUser.getInt("id"), 1);
         asserts.assertEquals(responseGetInfoAuthUser.getString("email"), VALID_MAIL);
         asserts.assertEquals(responseGetInfoAuthUser.getString("name"), "Andrei");
@@ -40,7 +40,7 @@ public class GetInfoAuthUserTests {
         asserts.assertEquals(responseGetInfoAuthUser.getString("username"), "user1");
         asserts.assertEquals(responseGetInfoAuthUser.getString("officeCountry"), "Belarus");
         asserts.assertEquals(responseGetInfoAuthUser.getString("officeCity"), "Gomel");
-        asserts.assertEquals(responseGetInfoAuthUser.get("adminOfficeId"), null);
+        asserts.assertEquals(responseGetInfoAuthUser.get("adminOfficeId").toString(), "null");
         asserts.assertEquals(responseGetInfoAuthUser.get("userOfficeId"), 2);
         asserts.assertAll();
     }
