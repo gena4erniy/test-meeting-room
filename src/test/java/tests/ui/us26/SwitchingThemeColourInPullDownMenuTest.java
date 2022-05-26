@@ -9,7 +9,7 @@ import tests.ui.BaseTest;
 import ui.pages.LocationChoose;
 import ui.pages.MySpacePage;
 
-public class CheckingPullDownMenuInTheMySpaceTabScreen extends BaseTest {
+public class SwitchingThemeColourInPullDownMenuTest extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
 
@@ -22,14 +22,20 @@ public class CheckingPullDownMenuInTheMySpaceTabScreen extends BaseTest {
     }
 
     @Owner("Golcova A.")
-    @TmsLink("C5687572")
-    @Test(description = "Checking drop-down menu in the My Space Tab screen")
-    public void mySpaceTabDropDownMenuTest() {
+    @TmsLink("5687573")
+    @Test(description = "Switching theme colour in pull-down menu")
+    public void switchingTheThemeColorTest() {
+
         driver.findElement(mySpacePage.getSettingsButton()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getLocationSettings()).isDisplayed()
                         && driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).isDisplayed()
                         && driver.findElement(mySpacePage.getPopupLogOut()).isDisplayed(),
                 "The drop-down menu is displayed incorrectly");
-
+        String uncheckedPopupSwitchDarkTheme = driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).getAttribute("checked");
+        driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).click();
+        driver.findElement(mySpacePage.getSettingsButton()).click();
+        String checkedPopupSwitchDarkTheme = driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).getAttribute("checked");
+        Assert.assertNotEquals(uncheckedPopupSwitchDarkTheme, checkedPopupSwitchDarkTheme);
+        driver.findElement(mySpacePage.getPopupSwitchDarkTheme()).click();
     }
 }

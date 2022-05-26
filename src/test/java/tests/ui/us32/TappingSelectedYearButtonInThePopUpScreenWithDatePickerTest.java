@@ -27,7 +27,7 @@ public class TappingSelectedYearButtonInThePopUpScreenWithDatePickerTest extends
     }
 
     @Owner("Golcova A.")
-    @TmsLink("C5776242")
+    @TmsLink("5776242")
     @Test(description = "Checking the 'selected year' button in the calendar pop-up window.")
     public void clickingSelectYearButtonTest() {
         String textMonthButton = driver.findElement(roomsPage.getMonthButton()).getText();

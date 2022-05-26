@@ -24,7 +24,7 @@ public class TapRightAndLeftButtonsOnTheRoomsScreenTest extends BaseTest {
     }
 
     @Owner("Golcova A.")
-    @TmsLink("C5774003")
+    @TmsLink("5774003")
     @Test(description = "Checking the tap of the '<' and '>' button in Rooms screen")
     public void clickingTheScrollButtonsTest() {
 

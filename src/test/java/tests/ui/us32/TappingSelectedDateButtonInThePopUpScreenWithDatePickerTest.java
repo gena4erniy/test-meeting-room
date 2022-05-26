@@ -26,7 +26,7 @@ public class TappingSelectedDateButtonInThePopUpScreenWithDatePickerTest extends
     }
 
     @Owner("Golcova A.")
-    @TmsLink("C5776243")
+    @TmsLink("5776243")
     @Test(description = "Checking the 'Www, dd Mmm' button with the selected date in the calendar pop-up window.")
     public void clickingSelectDateButtonTest() {
 

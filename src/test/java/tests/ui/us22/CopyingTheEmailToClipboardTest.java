@@ -28,7 +28,7 @@ public class CopyingTheEmailToClipboardTest extends BaseTest {
     @Owner("Golcova A.")
     @TmsLink("5628139")
     @Test(description = "Copying the e-mail field's contents to the device clipboard")
-    public void TapOnEventTitleHistoryTest() {
+    public void copyingTheEmailToClipboardTest() {
         driver.findElement(mySpacePage.getEventTitle()).click();
         Assert.assertEquals(driver.findElement(mySpacePage.getNotificationOfBookedEvents()).getText(), "Events booked in the last 10 days");
         driver.findElements(mySpacePage.getEventCard()).get(0).click();
@@ -37,6 +37,7 @@ public class CopyingTheEmailToClipboardTest extends BaseTest {
         Assert.assertTrue(driver.findElement(mySpacePage.getMailIconImage()).isDisplayed(), "The image of the mail icon is missing");
         driver.findElement(mySpacePage.getBookerEmail()).click();
         driver.findElement(mySpacePage.getButtonCopy()).click();
-
+        String textCopy = driver.getClipboardText();
+        Assert.assertEquals(driver.findElement(mySpacePage.getBookerEmail()).getText(), textCopy);
     }
 }

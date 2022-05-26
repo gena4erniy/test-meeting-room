@@ -27,7 +27,7 @@ public class TapingMounthYYYYbuttonTest extends BaseTest {
     }
 
     @Owner("Golcova A.")
-    @TmsLink("C5776238")
+    @TmsLink("5776238")
     @Test(description = "Checking the tap of the 'Month YYYY' button")
     public void clickingSelectDateButtonTest() {
         driver.findElement(roomsPage.getMonthButton()).click();
