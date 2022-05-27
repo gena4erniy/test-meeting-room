@@ -19,6 +19,7 @@ public class ApiEndpoints {
     // office-controller
     public static final String OFFICES = "api/offices"; //GET
     public static final String OFFICES_PARAM = "/api/offices/%s"; //GET {id}
+    public static final String OFFICES_PARAM3 = "/api/offices/3"; //GET {3}
 
     // room-controller
     public static final String ROOMS = "api/rooms"; //GET
