@@ -32,17 +32,15 @@ public class GetListOfOffices  {
     }
 
     @Owner(value = "Kudayeu S.")
-    @Test(description = "Get information about office using ID")
-    @Description("Get information about office using ID")
+    @Test(description = "Get information about all offices ")
+    @Description("Get information about all offices")
     public void getListOfOffices() {
 
         JSONObject responseGetListOffices = meetingRoomClient.getCall(OFFICES);
         assertThat(responseGetListOffices.getInt("Status Code")).isEqualTo(200);
         ArrayList list1 = new ArrayList(responseGetListOffices.toMap().values());
         String myjson =  list1.get(1).toString();
-        System.out.println(myjson);
         String secondJson = listOfOfficesResponse.getJsonListOffices();
-        System.out.println("Это просто второй json !!!!!!!!!!!!!!   " + secondJson);
         Assert.assertEquals(myjson, secondJson);
     }
 }
