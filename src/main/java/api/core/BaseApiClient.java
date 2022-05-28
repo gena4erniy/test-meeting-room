@@ -57,13 +57,13 @@ public class BaseApiClient extends AbstractApiClient {
             try {
                 JSONObject body = new JSONObject();
                 body.put("Status Code", r.getStatusCode());
-                body.put("Body", new JSONArray((r.getBody())));
+                body.put("Body", new JSONArray((r.getBody().prettyPrint())));
                 return (T) body;
             } catch (Exception e) {
                 JSONObject body = new JSONObject();
                 body.put("Status Code", r.getStatusCode());
                 body.put("Body", r.getBody().prettyPrint());
-                logger.debug("Body Response: " + r.getBody());
+                logger.debug("Body Response: " + r.getBody().prettyPrint());
                 return (T) body;
             }
         }
