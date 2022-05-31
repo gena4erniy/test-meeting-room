@@ -18,15 +18,11 @@ public class GetInfoEventTests {
     private MeetingRoomClient meetingRoomClient;
     private JSONObject loginRequestDto;
 
-
-
     @BeforeClass
     private void preconditions() {
         meetingRoomClient = new MeetingRoomClient();
         meetingRoomClient.getAccessToken();
         loginRequestDto = LoginRequestDto.builder().email(VALID_MAIL).password(VALID_PASS).build().createBody();
-
-
     }
 
     @Owner(value = "Sirozh E.")
