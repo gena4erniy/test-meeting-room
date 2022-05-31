@@ -10,7 +10,6 @@ import io.qameta.allure.TmsLink;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ui.pages.AuthorizationPage;
-import ui.pages.LocationChoose;
 
 import java.net.MalformedURLException;
 
@@ -20,7 +19,7 @@ import static ui.pages.BasePage.capabilities;
 @Epic("Login")
 @Feature("US 1.1")
 
-public class CheckMailLenth {
+public class CheckMailLenthTests {
     private AndroidDriver<AndroidElement> driver;
     private AuthorizationPage authorizationPage;
 

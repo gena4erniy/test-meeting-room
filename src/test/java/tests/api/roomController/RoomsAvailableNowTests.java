@@ -4,19 +4,17 @@ import api.core.MeetingRoomClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.json.JSONObject;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import static api.core.ApiEndpoints.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RoomsAvailableNow {
+public class RoomsAvailableNowTests {
 
     private MeetingRoomClient meetingRoomClient;
     private Map<String, Object> query;

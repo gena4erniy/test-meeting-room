@@ -12,7 +12,7 @@ import java.util.Map;
 import static api.core.ApiEndpoints.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BookedByDate {
+public class BookedByDateTests {
 
     private MeetingRoomClient meetingRoomClient;
     private Map<String, Object> query;
@@ -41,6 +41,8 @@ public class BookedByDate {
         asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0).get("projector").toString(), "false");
         asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0).get("board").toString(), "false");
         asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0).get("color"), "#FF0000");
+        asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0)
+                .getJSONArray("events").getJSONObject(0).getInt("id"), 3527);
         asserts.assertAll();
 
     }

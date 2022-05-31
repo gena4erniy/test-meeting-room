@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import tests.ui.BaseTest;
 import ui.pages.*;
 
-public class DisplayingTheReminderTimerBelowTheReminderIconTest extends BaseTest {
+public class DisplayingTheReminderTimerBelowTheReminderIconTests extends BaseTest {
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
     private CountriesPage countriesPage;

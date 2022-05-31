@@ -10,19 +10,18 @@ import io.qameta.allure.TmsLink;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ui.pages.AuthorizationPage;
-import ui.pages.LocationChoose;
 
 import java.net.MalformedURLException;
+
 import static ui.constants.Constant.ValidCredo.VALID_PASS;
 import static ui.pages.BasePage.capabilities;
 
 @Epic("Login")
 @Feature("US 1.1")
 
-public class AuthEmptyMail {
+public class PasswordMaskTests {
     private AndroidDriver<AndroidElement> driver;
     private AuthorizationPage authorizationPage;
-
 
     @BeforeClass
     private void preconditions() throws MalformedURLException {
@@ -34,11 +33,14 @@ public class AuthEmptyMail {
     public void closeDriver() {driver.quit();}
 
     @Owner("Kudayeu S.")
-    @TmsLink("5628579")
-    @Test(description = "User authorization using empty 'E-mail' field")
-    public void authorizationNullMail(){
+    @TmsLink("5628570")
+    @Test(description = "Password mask switch")
+    public void passMask(){
         driver.findElement(authorizationPage.getPasswordInput()).sendKeys(VALID_PASS);
-        driver.findElement(authorizationPage.getButtonLogin()).click();
-        Assert.assertFalse(driver.findElement(authorizationPage.getButtonLogin()).isEnabled(), "test failed");
+        Assert.assertTrue(driver.findElement(authorizationPage.getEyeIconcross()).isDisplayed(), "Hover doesn't work");
+        Assert.assertTrue(driver.findElement(authorizationPage.getHoverPass()).isDisplayed(), "Hover doesn't work");
+        driver.findElement(authorizationPage.getEyeIcon()).click();
+        Assert.assertTrue(driver.findElement(authorizationPage.getEyeIconNocross()).isDisplayed(), "Hover doesn't work");
+        Assert.assertTrue(driver.findElement(authorizationPage.getNoHoverPass()).isDisplayed(), "Hover doesn't work");
     }
 }

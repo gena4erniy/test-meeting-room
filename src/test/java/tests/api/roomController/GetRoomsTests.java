@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import static api.core.ApiEndpoints.*;
 import static org.assertj.core.api.Assertions.assertThat;
-public class GetRooms {
+public class GetRoomsTests {
     private MeetingRoomClient meetingRoomClient;
 
     @BeforeClass
