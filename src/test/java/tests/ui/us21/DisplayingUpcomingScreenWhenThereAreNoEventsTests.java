@@ -9,7 +9,7 @@ import tests.ui.BaseTest;
 import ui.pages.LocationChoose;
 import ui.pages.MySpacePage;
 
-public class DisplayingUpcomingScreenWhenThereAreNoEventsTest extends BaseTest {
+public class DisplayingUpcomingScreenWhenThereAreNoEventsTests extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
 

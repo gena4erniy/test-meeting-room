@@ -22,14 +22,14 @@ import java.time.Duration;
 
 @Epic("Login")
 @Feature("US 3.1")
-public class ScrollUpDown extends BaseTest {
+public class ScrollUpDownTests extends BaseTest {
     private LocationChoose locationchoose;
     private TimeElementShedule timeElementShedule;
     private AndroidTouchAction touch;
     private LongPressOptions longpress;
 
 
-    public ScrollUpDown() throws MalformedURLException {
+    public ScrollUpDownTests() throws MalformedURLException {
     }
 
     @BeforeClass

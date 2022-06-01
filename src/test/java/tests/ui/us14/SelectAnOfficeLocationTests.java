@@ -12,13 +12,13 @@ import ui.pages.*;
 
 @Epic("Login")
 @Feature("US 1.4")
-public class SelectAnOfficeLocationTest extends BaseTest {
+public class SelectAnOfficeLocationTests extends BaseTest {
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
     private CountriesPage countriesPage;
     private MySpacePage mySpacePage;
 
-    public SelectAnOfficeLocationTest(){
+    public SelectAnOfficeLocationTests(){
     }
 
     @BeforeClass

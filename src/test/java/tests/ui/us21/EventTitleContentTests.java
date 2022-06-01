@@ -1,4 +1,4 @@
-package tests.ui.us22;
+package tests.ui.us21;
 
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
@@ -9,24 +9,24 @@ import tests.ui.BaseTest;
 import ui.pages.LocationChoose;
 import ui.pages.MySpacePage;
 
-public class DisplayingMyScreenHistoryWhenThereAreNoPastEventsTest extends BaseTest {
+public class EventTitleContentTests extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
 
     @BeforeClass
     private void precondition() {
-        authorizationWithNoEvents();
+        authorization();
         locationchoose = new LocationChoose();
         mySpacePage = new MySpacePage();
     }
 
     @Owner("Vaskovich K.")
-    @TmsLink("5628140")
-    @Test(description = "Verify that no events booked in the last 10 days.")
-    public void DisplayingMyScreenHistoryWhenThereAreNoPastEventsTest() {
+    @TmsLink("5628135")
+    @Test(description = "Verification that title contains: 'Event title', 'Event start-end time', 'Event date', 'Event room'.")
+    public void EventTitleContentTest() {
         driver.findElement(locationchoose.getNextButton()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getUpcomingTab()).isSelected(),"The Upcoming control not displays in active mode by default.");
-        driver.findElement(mySpacePage.getHistoryTab()).click();
-        Assert.assertTrue(driver.findElement(mySpacePage.getNoEventMessageHistoryTab()).isDisplayed(),"No events booked in the last 10 days is not displayed on Tiles List Placeholder.");
+        Assert.assertTrue(driver.findElement(mySpacePage.getEventTitle()).isDisplayed() && driver.findElement(mySpacePage.getEventTime()).isDisplayed() &&
+                driver.findElement(mySpacePage.getEventDate()).isDisplayed() && driver.findElement(mySpacePage.getEventRoom()).isDisplayed(),"Event title not contains: 'Event title', 'Event start-end time', 'Event date', 'Event room'.");
     }
 }
