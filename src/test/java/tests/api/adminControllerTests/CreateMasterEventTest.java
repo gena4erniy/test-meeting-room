@@ -1,6 +1,6 @@
-package tests.api.eventControllerTests;
+package tests.api.adminControllerTests;
 
-import api.core.MeetingRoomClient;
+import api.core.MeetingRoomAdmin;
 import api.dto.EventDto;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -8,15 +8,16 @@ import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static api.core.ApiEndpoints.EVENTS;
+import static api.core.ApiEndpoints.ADMIN_EVENTS;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CreateEventTests {
-    private MeetingRoomClient meetingRoomClient;
+public class CreateMasterEventTest {
+    private MeetingRoomAdmin meetingRoomAdmin;
     private JSONObject eventDto;
     private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SS";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -27,16 +28,16 @@ public class CreateEventTests {
 
     @BeforeClass
     private void preconditions() {
-        meetingRoomClient = new MeetingRoomClient();
-        meetingRoomClient.getAccessToken();
-        eventDto = EventDto.builder().description("dff").title("red").build().createEventBody(startDateTime, endDateTime);
+        meetingRoomAdmin = new MeetingRoomAdmin();
+        meetingRoomAdmin.getAccessToken();
+        eventDto = EventDto.builder().description("ffd").title("black").build().createEventBody(startDateTime, endDateTime);
     }
 
     @Owner(value = "Sirozh E.")
-    @Test(description = "Get information about create test")
-    @Description("Create Master Event")
-    public void getInfoCreateEvent() {
-        JSONObject responseGetInfoCreateEvent = meetingRoomClient.postCall(EVENTS, eventDto);
+    @Test(description = "Get information about a logged in user")
+    @Description("Get information about a logged in user")
+    public void getInfoCreateMasterEvent() {
+        JSONObject responseGetInfoCreateEvent = meetingRoomAdmin.postCall(ADMIN_EVENTS, eventDto);
         assertThat(responseGetInfoCreateEvent.getInt("Status Code")).isEqualTo(201);
 
         SoftAssert asserts = new SoftAssert();
@@ -53,3 +54,4 @@ public class CreateEventTests {
         return calendar.getTime();
     }
 }
+
