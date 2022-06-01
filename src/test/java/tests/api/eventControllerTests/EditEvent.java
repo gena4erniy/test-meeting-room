@@ -35,7 +35,6 @@ public class EditEvent {
     @Description("edit event")
     public void checkEditEvent() {
         JSONObject responseGetInfoCreateEvent = meetingRoomClient.patchCall(EVENTS, newEventDto);
-//        assertThat(responseGetInfoCreateEvent.getInt("Status Code")).isEqualTo(200);
 
         SoftAssert asserts = new SoftAssert();
         asserts.assertEquals(responseGetInfoCreateEvent.getInt("roomId"), 1);
