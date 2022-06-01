@@ -12,12 +12,12 @@ import ui.pages.*;
 
 @Epic("Login")
 @Feature("US 1.4")
-public class TapCountryButtonForCitiesTest extends BaseTest {
+public class TapCountryButtonForCitiesTests extends BaseTest {
     private LocationChoose locationchoose;
     private UkranianCitiesChoose ukranianCitiesChoose;
     private CountriesPage countriesPage;
 
-    public TapCountryButtonForCitiesTest(){
+    public TapCountryButtonForCitiesTests(){
     }
 
     @BeforeClass

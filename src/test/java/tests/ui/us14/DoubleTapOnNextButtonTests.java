@@ -13,13 +13,13 @@ import ui.pages.*;
 
 @Epic("Login")
 @Feature("US 1.4")
-public class DoubleTapOnNextButtonTest extends BaseTest {
+public class DoubleTapOnNextButtonTests extends BaseTest {
     private LocationChoose locationchoose;
     private RussianCitiesChoose russianCitiesChoose;
     private CountriesPage countriesPage;
     private MySpacePage mySpacePage;
 
-    public DoubleTapOnNextButtonTest() {
+    public DoubleTapOnNextButtonTests() {
     }
 
     @BeforeClass

@@ -6,10 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import tests.ui.BaseTest;
-import ui.pages.LocationChoose;
-import ui.pages.MySpacePage;
+import ui.pages.*;
 
-public class EventTitleContentTest extends BaseTest {
+public class SwitchingBetweenSegmentedControlsTests extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
 
@@ -21,12 +20,12 @@ public class EventTitleContentTest extends BaseTest {
     }
 
     @Owner("Vaskovich K.")
-    @TmsLink("5628135")
-    @Test(description = "Verification that title contains: 'Event title', 'Event start-end time', 'Event date', 'Event room'.")
-    public void EventTitleContentTest() {
+    @TmsLink("5628130")
+    @Test(description = "Verification that the History control is shown active. The Upcoming control displaying in inactive mode.")
+    public void SwitchingBetweenSegmentedControlsTest() {
         driver.findElement(locationchoose.getNextButton()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getUpcomingTab()).isSelected(),"The Upcoming control not displays in active mode by default.");
-        Assert.assertTrue(driver.findElement(mySpacePage.getEventTitle()).isDisplayed() && driver.findElement(mySpacePage.getEventTime()).isDisplayed() &&
-                driver.findElement(mySpacePage.getEventDate()).isDisplayed() && driver.findElement(mySpacePage.getEventRoom()).isDisplayed(),"Event title not contains: 'Event title', 'Event start-end time', 'Event date', 'Event room'.");
+        driver.findElement(mySpacePage.getHistoryTab()).click();
+        Assert.assertTrue(driver.findElement(mySpacePage.getHistoryTab()).isSelected(),"The History control not displays in active mode by default.");
     }
 }
