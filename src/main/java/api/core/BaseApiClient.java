@@ -33,6 +33,10 @@ public class BaseApiClient extends AbstractApiClient {
         return getResponseAnswer(performPostCall(endpoint, object));
     }
 
+    public <T> T postCallHeader(String endpoint, String token) throws JSONException {
+        return getResponseAnswer(performPostCallHeader(endpoint, token));
+    }
+
     public <T> T patchCall(String endpoint, JSONObject object) throws JSONException {
         return getResponseAnswer(performPatchCall(endpoint, object));
     }

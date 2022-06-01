@@ -3,11 +3,12 @@ package tests.api;
 import api.core.MeetingRoomClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static api.core.ApiEndpoints.*;
+import static api.core.ApiEndpoints.OFFICES_PARAM3;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetOfficesIdTests {

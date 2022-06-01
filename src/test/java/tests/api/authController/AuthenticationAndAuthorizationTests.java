@@ -1,4 +1,4 @@
-package tests.api;
+package tests.api.authController;
 
 import api.core.ClientForToken;
 import api.dto.LoginRequestDto;
@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static ui.constants.Constant.ValidCredo.VALID_MAIL;
 import static ui.constants.Constant.ValidCredo.VALID_PASS;
 
-public class GetTokensTests {
+public class AuthenticationAndAuthorizationTests {
     private ClientForToken clientForToken;
     private JSONObject loginRequestDto;
 
