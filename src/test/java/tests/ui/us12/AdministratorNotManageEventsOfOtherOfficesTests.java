@@ -54,8 +54,9 @@ public class AdministratorNotManageEventsOfOtherOfficesTests extends BaseTest {
         driver.findElement(locationchoose.getNextButton()).click();
         Assert.assertTrue(driver.findElement(mySpacePage.getMySpaceTitle()).getText().equals("My space"));
         driver.findElement(mySpacePage.getRoomsTitle()).click();
-        driver.findElement(roomsPage.getPreviosDate()).click();
-        driver.findElement(roomsPage.getPreviosDate()).click();
+        driver.findElement(roomsPage.getPreviousDate()).click();
+        driver.findElement(roomsPage.getPreviousDate()).click();
+        driver.findElement(roomsPage.getPreviousDate()).click();
 //        driver.findElement(roomsPage.getNextDate()).click();помогите решить с датами
         driver.findElement(roomsPage.getChoseDate()).click();
         driver.findElement(roomsPage.getChoseEvent()).click();

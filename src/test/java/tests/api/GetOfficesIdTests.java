@@ -3,6 +3,7 @@ package tests.api;
 import api.core.MeetingRoomClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
