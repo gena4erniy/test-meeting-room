@@ -29,14 +29,16 @@ public class GetInfoEventTests {
     @Test(description = "Get information create event")
     @Description("create event")
     public void getInfoEvent() {
-        JSONObject responseGetInfoAuthUser = meetingRoomClient.getCall("api/events/3569");
+        JSONObject responseGetInfoAuthUser = meetingRoomClient.getCall("api/events/3592");
         Assertions.assertThat(responseGetInfoAuthUser.getInt("Status Code")).isEqualTo(200);
 
         SoftAssert asserts = new SoftAssert();
-        asserts.assertEquals(responseGetInfoAuthUser.getInt("id"), 3569);
+        asserts.assertEquals(responseGetInfoAuthUser.getInt("id"), 3592);
         asserts.assertEquals(responseGetInfoAuthUser.getString("title"), "red");
+        asserts.assertEquals(responseGetInfoAuthUser.getString("description"), "dff");
         assertThat(responseGetInfoAuthUser.get("room")).isNotNull();
         assertThat(responseGetInfoAuthUser.get("user")).isNotNull();
+        asserts.assertEquals(responseGetInfoAuthUser.getString("status"), "BOOKED");
         asserts.assertAll();
     }
 }

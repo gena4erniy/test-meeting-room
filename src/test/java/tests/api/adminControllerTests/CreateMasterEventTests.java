@@ -16,7 +16,7 @@ import java.util.Date;
 import static api.core.ApiEndpoints.ADMIN_EVENTS;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CreateMasterEventTest {
+public class CreateMasterEventTests {
     private MeetingRoomAdmin meetingRoomAdmin;
     private JSONObject eventDto;
     private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SS";

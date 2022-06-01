@@ -37,6 +37,10 @@ public class BaseApiClient extends AbstractApiClient {
         return getResponseAnswer(performPatchCall(endpoint, object));
     }
 
+    public <T> T deleteCall(String endpoint, JSONObject object) throws JSONException {
+        return getResponseAnswer(performDeleteCall(endpoint, object));
+    }
+
     public <T> T getResponseAnswer(Response r) throws JSONException {
 
         logger.debug("-------------------------------");
