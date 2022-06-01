@@ -39,7 +39,6 @@ public class CheckingReminderTests extends BaseTest {
         Assert.assertTrue(driver.findElement(modifyEventPage.getPageTitle()).isDisplayed());
         Assert.assertTrue(driver.findElement(mySpacePage.getRoomsTitle()).isEnabled(), " Блокирует работу приложения до тех пор, пока Пользователь не сохранит изменения или не отменит операцию.\n" +
                 "        //не блокирует");
-//        Assert.assertEquals(driver.findElement(modifyEventPage.getTextReminder()).getText(), "Never");
         driver.findElement(modifyEventPage.getButtonReminder()).click();
         Assert.assertTrue(driver.findElement(modifyReminderPage.getListReminder()).isDisplayed());
         List<AndroidElement> chekListReminder = driver.findElements(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView"));
