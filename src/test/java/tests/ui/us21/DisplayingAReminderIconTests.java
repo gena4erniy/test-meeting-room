@@ -11,7 +11,7 @@ import ui.pages.CountriesPage;
 import ui.pages.LocationChoose;
 import ui.pages.MySpacePage;
 
-public class DisplayingAReminderIconTest extends BaseTest {
+public class DisplayingAReminderIconTests extends BaseTest {
     private LocationChoose locationchoose;
     private BelarusCitiesChoose belarusCitiesChoose;
     private CountriesPage countriesPage;

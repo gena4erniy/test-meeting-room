@@ -9,7 +9,7 @@ import tests.ui.BaseTest;
 import ui.pages.LocationChoose;
 import ui.pages.MySpacePage;
 
-public class TapOnEventTitleHistoryTest extends BaseTest {
+public class TapOnEventTitleHistoryTests extends BaseTest {
     private LocationChoose locationchoose;
     private MySpacePage mySpacePage;
 

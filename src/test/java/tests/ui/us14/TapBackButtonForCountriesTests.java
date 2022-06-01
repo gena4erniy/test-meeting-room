@@ -12,11 +12,11 @@ import ui.pages.*;
 
 @Epic("Login")
 @Feature("US 1.4")
-public class ContentOfTheListOfCountriesTest extends BaseTest {
+public class TapBackButtonForCountriesTests extends BaseTest {
     private LocationChoose locationchoose;
     private CountriesPage countriesPage;
 
-    public ContentOfTheListOfCountriesTest(){
+    public TapBackButtonForCountriesTests() {
     }
 
     @BeforeClass
@@ -28,11 +28,11 @@ public class ContentOfTheListOfCountriesTest extends BaseTest {
     }
 
     @Owner("Vaskovich K.")
-    @TmsLink("5630753")
-    @Test(description = "Verify that the List: Ukraine, Russia, Belarus is displayed")
-    public void contentsOfTheListOfCountriesTest() {
-        Assert.assertTrue(driver.findElement(countriesPage.getSelectRussia()).isDisplayed() &&
-                driver.findElement(countriesPage.getSelectBelarus()).isDisplayed() &&
-                driver.findElement(countriesPage.getSelectUkraine()).isDisplayed(), "The countrie is not displayed");
+    @TmsLink("5630744")
+    @Test(description = "Verification that the back button works")
+    public void tapBackButtonOnTheLocationTest() {
+        Assert.assertTrue(driver.findElement(countriesPage.getCountryText()).isDisplayed(), "The countrie is not displayed");
+        driver.findElement(countriesPage.getBackButton()).click();
+        Assert.assertTrue(driver.findElement(locationchoose.getSelectButton()).isDisplayed(), "The  location page is not displayed");
     }
 }

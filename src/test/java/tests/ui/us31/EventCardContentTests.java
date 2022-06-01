@@ -11,14 +11,14 @@ import ui.pages.*;
 
 import java.net.MalformedURLException;
 
-public class EventCardContent extends BaseTest {
+public class EventCardContentTests extends BaseTest {
     private LocationChoose locationchoose;
     private EventCard eventCard;
     private Calendar calendar;
 
 
 
-    public EventCardContent() throws MalformedURLException {
+    public EventCardContentTests() throws MalformedURLException {
     }
 
     @BeforeClass
