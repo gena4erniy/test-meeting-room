@@ -11,4 +11,5 @@ public class LocationChoose {
     private final By cityName = By.xpath("//android.widget.TextView[2]");
     private final By nextButton = By.xpath("//android.widget.TextView[@text = 'NEXT']");
     private final By backButton = By.id("arrow_back_location_fragment");
+    private final By cityTextButton = By.xpath("//android.widget.TextView[@index = '2']");
 }
