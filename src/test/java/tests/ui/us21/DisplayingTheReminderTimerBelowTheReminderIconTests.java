@@ -34,7 +34,7 @@ public class DisplayingTheReminderTimerBelowTheReminderIconTests extends BaseTes
     @Owner("Vaskovich K.")
     @TmsLink("5651206")
     @Test(description = "An active reminder timer displays a time before the event")
-    public void DisplayingTheReminderTimerBelowTheReminderIconTest() {
+    public void displayingTheReminderTimerBelowTheReminderIconTest() {
         Assert.assertTrue(driver.findElement(mySpacePage.getReminderTime()).isDisplayed(), "The reminder has a set time.");
     }
 }
