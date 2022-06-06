@@ -68,7 +68,8 @@ public abstract class AbstractApiClient {
         return request().body(body.toString()).patch(endpointPart);
     }
 
-    protected Response performDeleteCall(String endpointPart, JSONObject body) {
-        return request().body(body.toString()).delete("api/events/3569");
+    protected Response performDeleteCall(String endpointPart) {
+        Response response = request().delete(endpointPart);
+        return response;
     }
 }

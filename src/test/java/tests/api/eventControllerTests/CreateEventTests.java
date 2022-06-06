@@ -18,7 +18,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CreateEventTests {
     private MeetingRoomClient meetingRoomClient;
     private JSONObject eventDto;
-    private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SS";
+    private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SSS";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
     private Date DateTime = addHoursToJavaUtilDate(new Date(System.currentTimeMillis()), 1);
@@ -34,7 +34,7 @@ public class CreateEventTests {
 
     @Owner(value = "Sirozh E.")
     @Test(description = "Get information about create test")
-    @Description("Create Master Event")
+    @Description("Create regular event")
     public void getInfoCreateEvent() {
         JSONObject responseGetInfoCreateEvent = meetingRoomClient.postCall(EVENTS, eventDto);
         assertThat(responseGetInfoCreateEvent.getInt("Status Code")).isEqualTo(201);
@@ -43,6 +43,7 @@ public class CreateEventTests {
         asserts.assertEquals(responseGetInfoCreateEvent.getInt("roomId"), 1);
         asserts.assertEquals(responseGetInfoCreateEvent.getString("endDateTime"), endDateTime);
         asserts.assertEquals(responseGetInfoCreateEvent.getString("startDateTime"), startDateTime);
+
         asserts.assertAll();
     }
 

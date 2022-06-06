@@ -1,7 +1,6 @@
 package tests.api.eventControllerTests;
 
 import api.core.MeetingRoomClient;
-import api.dto.LoginRequestDto;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.assertj.core.api.Assertions;
@@ -11,34 +10,31 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static ui.constants.Constant.ValidCredo.VALID_MAIL;
-import static ui.constants.Constant.ValidCredo.VALID_PASS;
 
 public class GetInfoEventTests {
     private MeetingRoomClient meetingRoomClient;
-    private JSONObject loginRequestDto;
 
     @BeforeClass
     private void preconditions() {
         meetingRoomClient = new MeetingRoomClient();
         meetingRoomClient.getAccessToken();
-        loginRequestDto = LoginRequestDto.builder().email(VALID_MAIL).password(VALID_PASS).build().createBody();
     }
 
     @Owner(value = "Sirozh E.")
-    @Test(description = "Get information create event")
-    @Description("create event")
+    @Test(description = "Get information about event")
+    @Description("Create event")
     public void getInfoEvent() {
-        JSONObject responseGetInfoAuthUser = meetingRoomClient.getCall("api/events/3592");
-        Assertions.assertThat(responseGetInfoAuthUser.getInt("Status Code")).isEqualTo(200);
+        JSONObject responseGetInfoCreateRegularEvent = meetingRoomClient.getCall("api/events/3565");
+        Assertions.assertThat(responseGetInfoCreateRegularEvent.getInt("Status Code")).isEqualTo(200);
 
         SoftAssert asserts = new SoftAssert();
-        asserts.assertEquals(responseGetInfoAuthUser.getInt("id"), 3592);
-        asserts.assertEquals(responseGetInfoAuthUser.getString("title"), "red");
-        asserts.assertEquals(responseGetInfoAuthUser.getString("description"), "dff");
-        assertThat(responseGetInfoAuthUser.get("room")).isNotNull();
-        assertThat(responseGetInfoAuthUser.get("user")).isNotNull();
-        asserts.assertEquals(responseGetInfoAuthUser.getString("status"), "BOOKED");
+        asserts.assertEquals(responseGetInfoCreateRegularEvent.getInt("id"), 3565);
+        asserts.assertEquals(responseGetInfoCreateRegularEvent.getString("title"), "red");
+        asserts.assertEquals(responseGetInfoCreateRegularEvent.getString("description"), "dff");
+        assertThat(responseGetInfoCreateRegularEvent.get("room")).isNotNull();
+        assertThat(responseGetInfoCreateRegularEvent.get("user")).isNotNull();
+        assertThat(responseGetInfoCreateRegularEvent.get("status")).isNotNull();
+//        asserts.assertEquals(responseGetInfoAuthUser.getString("status"), "BOOKED");
         asserts.assertAll();
     }
 }
