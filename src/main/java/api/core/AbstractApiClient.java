@@ -72,7 +72,6 @@ public abstract class AbstractApiClient {
         Response response = request().delete(endpointPart);
         return response;
     }
-
     protected Response performPutCall(String endpointPart, JSONObject body) {
         return request().body(body.toString()).put(endpointPart);
     }
