@@ -79,5 +79,4 @@ public abstract class AbstractApiClient {
     protected Response performPutCall(String endpointPart, JSONObject body) {
         return request().body(body.toString()).put(endpointPart);
     }
-
 }
