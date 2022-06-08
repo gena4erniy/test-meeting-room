@@ -15,6 +15,8 @@ public class EventCardContentTests extends BaseTest {
     private LocationChoose locationchoose;
     private EventCard eventCard;
     private Calendar calendar;
+    CountriesPage countriesPage;
+    BelarusCitiesChoose belarusCitiesChoose;
 
 
 
@@ -27,7 +29,17 @@ public class EventCardContentTests extends BaseTest {
         locationchoose = new LocationChoose();
         eventCard = new EventCard();
         calendar = new Calendar();
-        driver.findElement(locationchoose.getNextButton()).click();
+        countriesPage = new CountriesPage();
+        belarusCitiesChoose = new BelarusCitiesChoose();
+        if (driver.findElement(locationchoose.getCityTextButton()).getText().equals("Gomel")){
+            driver.findElement(locationchoose.getNextButton()).click();
+        } else {
+            driver.findElement(locationchoose.getSelectButton()).click();
+            driver.findElement(countriesPage.getSelectBelarus()).click();
+            driver.findElement(belarusCitiesChoose.getButtonGomel()).click();
+            driver.findElement(locationchoose.getNextButton()).click();
+        }
+
         openRoom();
     }
 

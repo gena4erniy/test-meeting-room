@@ -1,6 +1,6 @@
-package tests.api.eventControllerTests;
+package tests.api.adminControllerTests;
 
-import api.core.MeetingRoomClient;
+import api.core.MeetingRoomAdmin;
 import api.dto.EventDto;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -8,15 +8,16 @@ import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import static api.core.ApiEndpoints.ADMIN_EVENTS;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static api.core.ApiEndpoints.EVENTS;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
-public class CreateEventTests {
-    private MeetingRoomClient meetingRoomClient;
+public class DeleteMasterEventTests {
+    private MeetingRoomAdmin meetingRoomAdmin;
     private JSONObject eventDto;
     private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SSS";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -24,27 +25,26 @@ public class CreateEventTests {
     private Date DateTime = addHoursToJavaUtilDate(new Date(System.currentTimeMillis()), 1);
     private String startDateTime = simpleDateFormat.format(DateTime);
     private String endDateTime = simpleDateFormat.format(addHoursToJavaUtilDate(DateTime, 1));
+    private Integer id;
 
     @BeforeClass
     private void preconditions() {
-        meetingRoomClient = new MeetingRoomClient();
-        meetingRoomClient.getAccessToken();
+        meetingRoomAdmin = new MeetingRoomAdmin();
+        meetingRoomAdmin.getAccessToken();
         eventDto = EventDto.builder().description("dff").title("red").build().createEventBody(startDateTime, endDateTime);
+        JSONObject responceGetInfoCreateMasterEvent = meetingRoomAdmin.postCall(ADMIN_EVENTS, eventDto);
+        id = responceGetInfoCreateMasterEvent.getInt("id");
     }
 
     @Owner(value = "Sirozh E.")
-    @Test(description = "Get information about create test")
-    @Description("Create regular event")
-    public void getInfoCreateEvent() {
-        JSONObject responseGetInfoCreateEvent = meetingRoomClient.postCall(EVENTS, eventDto);
-        assertThat(responseGetInfoCreateEvent.getInt("Status Code")).isEqualTo(201);
-
+    @Test(description = "Get information about status delete in event")
+    @Description("Delete event")
+    public void getInfoDelete() {
+        JSONObject responceDeleteMasterEvent = meetingRoomAdmin.deleteCall(ADMIN_EVENTS + "/" + id);
+        assertThat(responceDeleteMasterEvent.getInt("Status Code")).isEqualTo(204);
+        JSONObject responseGetInfoDeleteMasterEvent= meetingRoomAdmin.getCall(ADMIN_EVENTS + "/" + id);
         SoftAssert asserts = new SoftAssert();
-        asserts.assertEquals(responseGetInfoCreateEvent.getInt("roomId"), 1);
-        asserts.assertEquals(responseGetInfoCreateEvent.getString("endDateTime"), endDateTime);
-        asserts.assertEquals(responseGetInfoCreateEvent.getString("startDateTime"), startDateTime);
-
-        asserts.assertAll();
+        asserts.assertEquals(responseGetInfoDeleteMasterEvent.getInt("status"), "DELETED");
     }
 
     public Date addHoursToJavaUtilDate(Date date, int hours) {

@@ -16,10 +16,10 @@ import java.util.Date;
 import static api.core.ApiEndpoints.ADMIN_EVENTS;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CreateMasterEventTest {
+public class CreateMasterEventTests {
     private MeetingRoomAdmin meetingRoomAdmin;
     private JSONObject eventDto;
-    private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SS";
+    private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SSS";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
     private Date DateTime = addHoursToJavaUtilDate(new Date(System.currentTimeMillis()), 1);
@@ -34,8 +34,8 @@ public class CreateMasterEventTest {
     }
 
     @Owner(value = "Sirozh E.")
-    @Test(description = "Get information about a logged in user")
-    @Description("Get information about a logged in user")
+    @Test(description = "Get information about create masterEvent")
+    @Description("create masterEvent")
     public void getInfoCreateMasterEvent() {
         JSONObject responseGetInfoCreateEvent = meetingRoomAdmin.postCall(ADMIN_EVENTS, eventDto);
         assertThat(responseGetInfoCreateEvent.getInt("Status Code")).isEqualTo(201);

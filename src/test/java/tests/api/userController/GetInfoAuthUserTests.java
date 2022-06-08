@@ -1,4 +1,4 @@
-package tests.api;
+package tests.api.userController;
 
 import api.core.MeetingRoomClient;
 import io.qameta.allure.Description;

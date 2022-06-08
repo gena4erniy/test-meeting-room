@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static api.core.ApiEndpoints.*;
+import static api.core.ApiEndpoints.OFFICES_PARAM3;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetOfficesIdTests {

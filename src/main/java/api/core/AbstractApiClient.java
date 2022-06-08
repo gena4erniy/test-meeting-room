@@ -63,6 +63,9 @@ public abstract class AbstractApiClient {
     protected Response performPostCall(String endpointPart, JSONObject body) {
         return request().body(body.toString()).post(endpointPart);
     }
+    protected Response performPostCallHeader(String endpointPart, String token) {
+        return request().header("Authorization", "Bearer " + token).post(endpointPart);
+    }
 
     protected Response performPatchCall(String endpointPart, JSONObject body) {
         return request().body(body.toString()).patch(endpointPart);
