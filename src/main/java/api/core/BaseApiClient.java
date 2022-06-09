@@ -45,6 +45,9 @@ public class BaseApiClient extends AbstractApiClient {
         return getResponseAnswer(performDeleteCall(endpoint));
     }
 
+    public <T> T putCall(String endpoint, JSONObject object) throws JSONException {
+        return getResponseAnswer(performPutCall(endpoint, object));
+    }
 
     public <T> T getResponseAnswer(Response r) throws JSONException {
 
