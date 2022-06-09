@@ -38,10 +38,7 @@ public class GetInfoAuthUserTests {
         asserts.assertEquals(responseGetInfoAuthUser.getString("skype"), "live:.cid.11111");
         asserts.assertEquals(responseGetInfoAuthUser.getString("surname"), "Dashkevich");
         asserts.assertEquals(responseGetInfoAuthUser.getString("username"), "user1");
-        asserts.assertEquals(responseGetInfoAuthUser.getString("officeCountry"), "Belarus");
-        asserts.assertEquals(responseGetInfoAuthUser.getString("officeCity"), "Gomel");
         asserts.assertEquals(responseGetInfoAuthUser.get("adminOfficeId").toString(), "null");
-        asserts.assertEquals(responseGetInfoAuthUser.get("userOfficeId"), 2);
         asserts.assertAll();
     }
 }

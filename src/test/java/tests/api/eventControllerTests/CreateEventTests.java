@@ -5,6 +5,7 @@ import api.dto.EventDto;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -18,6 +19,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CreateEventTests {
     private MeetingRoomClient meetingRoomClient;
     private JSONObject eventDto;
+    private Integer id;
     private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SSS";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
@@ -38,12 +40,12 @@ public class CreateEventTests {
     public void getInfoCreateEvent() {
         JSONObject responseGetInfoCreateEvent = meetingRoomClient.postCall(EVENTS, eventDto);
         assertThat(responseGetInfoCreateEvent.getInt("Status Code")).isEqualTo(201);
+        id = responseGetInfoCreateEvent.getInt("id");
 
         SoftAssert asserts = new SoftAssert();
         asserts.assertEquals(responseGetInfoCreateEvent.getInt("roomId"), 1);
         asserts.assertEquals(responseGetInfoCreateEvent.getString("endDateTime"), endDateTime);
         asserts.assertEquals(responseGetInfoCreateEvent.getString("startDateTime"), startDateTime);
-
         asserts.assertAll();
     }
 
@@ -52,5 +54,11 @@ public class CreateEventTests {
         calendar.setTime(date);
         calendar.add(Calendar.HOUR_OF_DAY, hours);
         return calendar.getTime();
+    }
+
+    @AfterClass
+    public void deleteBookingById() {
+        meetingRoomClient.deleteCall(EVENTS + "/" + id);
+
     }
 }
