@@ -1,22 +1,16 @@
-package tests.api;
+package tests.api.officeController;
 
 import api.core.MeetingRoomClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.json.JSONObject;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-import org.json.JSONArray;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static api.core.ApiEndpoints.*;
+import static api.core.ApiEndpoints.OFFICES_PARAM3;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GetOfficesId {
+public class GetOfficesIdSecondTests {
 
     private MeetingRoomClient meetingRoomClient;
 
