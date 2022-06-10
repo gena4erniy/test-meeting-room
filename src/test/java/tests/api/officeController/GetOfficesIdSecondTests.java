@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import static api.core.ApiEndpoints.OFFICES_PARAM3;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GetOfficesId {
+public class GetOfficesIdSecondTests {
 
     private MeetingRoomClient meetingRoomClient;
 
