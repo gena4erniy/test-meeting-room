@@ -36,7 +36,5 @@ public class GetOfficesIdTests {
         assertThat(responseGetOfficeId.getInt("id")).isEqualTo(3);
         assertThat(responseGetOfficeId.getString("country")).isEqualTo("Russia");
         assertThat(responseGetOfficeId.getString("city")).isEqualTo("Saint Petersburg");
-        assertThat(responseGetOfficeId.get("timezone").toString()).isEqualTo("null");
-        assertThat(responseGetOfficeId.get("rooms").toString()).isEqualTo(array.toString());
     }
 }

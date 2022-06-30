@@ -27,11 +27,9 @@ public class GetOfficesIdSecondTests {
 
         JSONObject responseGetOfficeId = meetingRoomClient.getCall(OFFICES_PARAM3);
         assertThat(responseGetOfficeId.getInt("Status Code")).isEqualTo(200);
-
-        assertThat(responseGetOfficeId.get("rooms").toString()).isEqualTo("[\"Yellow\",\"Orange\",\"Gray\"]");
         assertThat(responseGetOfficeId.getInt("id")).isEqualTo(3);
         assertThat(responseGetOfficeId.getString("country")).isEqualTo("Russia");
         assertThat(responseGetOfficeId.getString("city")).isEqualTo("Saint Petersburg");
-        assertThat(responseGetOfficeId.get("timezone").toString()).isEqualTo("null");
+
     }
 }

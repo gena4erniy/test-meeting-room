@@ -7,9 +7,11 @@ import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 import java.util.HashMap;
 import java.util.Map;
-import static api.core.ApiEndpoints.*;
+
+import static api.core.ApiEndpoints.ROOMS_EVENTS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BookedByDateTests {
@@ -25,7 +27,6 @@ public class BookedByDateTests {
         query.put("day", "2022-07-15");
 
     }
-
     @Owner(value = "Kudayeu S.")
     @Test(description = "Get information about rooms available at certain date")
     @Description("Get information about rooms available at certain date")
@@ -41,8 +42,6 @@ public class BookedByDateTests {
         asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0).get("projector").toString(), "false");
         asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0).get("board").toString(), "false");
         asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0).get("color"), "#FF0000");
-        asserts.assertEquals(responseGetRoomsAvailableDate.getJSONArray("Body").getJSONObject(0)
-                .getJSONArray("events").getJSONObject(0).getInt("id"), 3527);
         asserts.assertAll();
 
     }

@@ -20,7 +20,7 @@ public class CreateEventTests {
     private MeetingRoomClient meetingRoomClient;
     private JSONObject eventDto;
     private Integer id;
-    private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SSS";
+    private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SS";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
     private Date DateTime = addHoursToJavaUtilDate(new Date(System.currentTimeMillis()), 1);

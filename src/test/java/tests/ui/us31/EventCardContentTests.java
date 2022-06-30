@@ -47,28 +47,18 @@ public class EventCardContentTests extends BaseTest {
     @TmsLink("5714897")
     @Test(description = "Event card content (User's own event)")
     public void eventContentUser() {
-        chooseMonth("July 2022");
+        chooseMonth("September 2022");
 
-        while(!driver.findElement(calendar.getMondayDate()).getText().contains("11")){
+        while(!driver.findElement(calendar.getMondayDate()).getText().contains("12")){
             driver.findElement(calendar.getNextButton()).click();
         }
 
-        chooseDay("15");
+        chooseDay("12");
 
         driver.findElement(By.xpath("//android.view.View[@index = '0']")).click();
 
-        Assert.assertTrue(driver.findElement(eventCard.getEventDate()).isDisplayed() &&
-                driver.findElement(eventCard.getRoomName()).isDisplayed() &&
-                driver.findElement(eventCard.getEventime()).isDisplayed() &&
-                driver.findElement(eventCard.getEventTitle()).isDisplayed() &&
-               driver.findElement(eventCard.getEventdescription()).isDisplayed() &&
-               driver.findElement(eventCard.getNameOfOwner()).isDisplayed() &&
-               driver.findElement(eventCard.getPositionOfOwner()).isDisplayed() &&
-               driver.findElement(eventCard.getEmailOfOwner()).isDisplayed() &&
-              driver.findElement(eventCard.getLine()).isDisplayed() &&
-               driver.findElement(eventCard.getButtonProfile()).isDisplayed() &&
-              driver.findElement(eventCard.getButtonMail()).isDisplayed() &&
-              driver.findElement(eventCard.getButtonSkype()).isDisplayed() &&
-               driver.findElement(eventCard.getSkypeOfOwner()).isDisplayed() , "Card is not coincide");
+        Assert.assertTrue(driver.findElement(eventCard.getEventTitleModify()).isDisplayed());
+        Assert.assertTrue(driver.findElement(eventCard.getEventDeleteModify()).isDisplayed());
+        Assert.assertTrue(driver.findElement(eventCard.getEventSave()).isDisplayed());
     }
 }

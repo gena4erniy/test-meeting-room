@@ -38,8 +38,6 @@ public class GetListOfOfficesTests {
         asserts.assertEquals(responseGetListOffices.getJSONArray("Body").getJSONObject(0).get("country"), "Belarus");
         asserts.assertEquals(responseGetListOffices.getJSONArray("Body").getJSONObject(0).get("city"), "Minsk");
         asserts.assertEquals(responseGetListOffices.getJSONArray("Body").getJSONObject(0)
-                .get("timezone").toString(), "null");
-        asserts.assertEquals(responseGetListOffices.getJSONArray("Body").getJSONObject(0)
                 .get("rooms").toString(), array.toString());
         asserts.assertAll();
     }
