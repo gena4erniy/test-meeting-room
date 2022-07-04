@@ -3,6 +3,7 @@ package tests.api.adminControllerTests;
 import api.core.MeetingRoomAdmin;
 import api.dto.EventDto;
 import api.dto.PutEventDto;
+import db.DataBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.json.JSONObject;
@@ -10,6 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +21,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class PutTheBookingFromTheAdminAccountTests {
     private MeetingRoomAdmin meetingRoomAdmin;
+    private DataBase dataBase;
     private Integer id;
     private JSONObject eventDto;
     private JSONObject putEventDto;
@@ -61,8 +64,8 @@ public class PutTheBookingFromTheAdminAccountTests {
     }
 
     @AfterClass
-    public void deleteBookingById() {
-        meetingRoomAdmin.deleteCall(ADMIN_EVENTS + "/" + id);
-
+    public void deleteBookingByIdDataBase() throws SQLException {
+        dataBase = new DataBase();
+        dataBase.delete(id);
     }
 }

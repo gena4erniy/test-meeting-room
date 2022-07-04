@@ -2,6 +2,7 @@ package tests.api.eventControllerTests;
 
 import api.core.MeetingRoomClient;
 import api.dto.EventDto;
+import db.DataBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.assertj.core.api.Assertions;
@@ -12,6 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,6 +24,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class GetInfoEventTests {
     private MeetingRoomClient meetingRoomClient;
     private JSONObject eventDto;
+    private DataBase dataBase;
     private Integer id;
     private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SSS";
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -64,9 +67,9 @@ public class GetInfoEventTests {
     }
 
     @AfterClass
-    public void deleteBookingById() {
-        meetingRoomClient.deleteCall(EVENTS + "/" + id);
-
+    public void deleteBookingByIdDataBase() throws SQLException {
+        dataBase = new DataBase();
+        dataBase.delete(id);
     }
 }
 
