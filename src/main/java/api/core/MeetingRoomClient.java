@@ -13,7 +13,7 @@ import static ui.constants.Constant.ValidCredo.VALID_PASS;
 public class MeetingRoomClient extends BaseApiClient {
     private String accessToken;
 
-    public String url = "http://10.10.15.190:9090/";
+    public String url = "https://meetingroom.andersenlab.dev/";
 
     @Override
     protected String getBaseURL() {

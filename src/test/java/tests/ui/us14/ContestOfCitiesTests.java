@@ -4,10 +4,11 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
-import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import tests.ui.BaseTest;
 import ui.pages.*;
 
@@ -47,9 +48,9 @@ public class ContestOfCitiesTests extends BaseTest {
                 {
                         countriesPage.getSelectRussia(),
                         russianCitiesChoose.getButtonSaintP(),
-                        russianCitiesChoose.getButtonKazan(),
+                        null,
                         "Питера нет в списке",
-                        "Казани нет в списке"
+                        null
                 },
                 {
                         countriesPage.getSelectUkraine(),
@@ -67,13 +68,15 @@ public class ContestOfCitiesTests extends BaseTest {
     public void contestOfCities(By country, By firstChoose, By secondChoose, String firstMessage, String secondMessage) {
 
         if (secondChoose != null) {
-            driver.findElement(country).click();
+            driver.findElement(countriesPage.getSelectBelarus()).click();
             Assert.assertTrue(driver.findElement(firstChoose).isDisplayed(), firstMessage);
             Assert.assertTrue(driver.findElement(secondChoose).isDisplayed(), secondMessage);
             driver.findElement(locationchoose.getBackButton()).click();
         } else {
-            driver.findElement(countriesPage.getSelectUkraine()).click();
+            driver.findElement(country).click();
             Assert.assertTrue(driver.findElement(firstChoose).isDisplayed(), firstMessage);
+            driver.findElement(locationchoose.getBackButton()).click();
+
         }
     }
 }

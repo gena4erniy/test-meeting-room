@@ -37,12 +37,7 @@ public class RoomsFutureBookingTests {
         JSONObject responseRoomsFutureBooked = meetingRoomClient.getCallQuery(ROOMS_EVENTS_IN_ROOMS, query);
         SoftAssert asserts = new SoftAssert();
         assertThat(responseRoomsFutureBooked.getInt("Status Code")).isEqualTo(200);
-        asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).get("id"), 5);
         asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).getString("title"), "Red");
-        asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).getString("office"), "Kiev");
-        asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).get("floor"), 2);
-        asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).get("capacity"), 10);
-        asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).get("projector").toString(), "true");
         asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).get("board").toString(), "false");
         asserts.assertEquals(responseRoomsFutureBooked.getJSONArray("Body").getJSONObject(0).getString("color"), "#FF0000");
         asserts.assertAll();

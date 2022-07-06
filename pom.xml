@@ -100,6 +100,11 @@
             <artifactId>awaitility</artifactId>
             <version>${awaitility.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.4.0</version>
+        </dependency>
 
     </dependencies>
 

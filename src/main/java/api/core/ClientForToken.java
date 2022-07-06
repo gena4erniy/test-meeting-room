@@ -7,7 +7,7 @@ public class ClientForToken extends BaseApiClient {
 
     @Override
     protected String getBaseURL() {
-        return "http://10.10.15.190:9090/";
+        return "https://meetingroom.andersenlab.dev/";
     }
 
     @Override
