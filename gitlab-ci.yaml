@@ -1,0 +1,56 @@
+image: maven:3.6-jdk-11
+
+stages:
+  - delay
+  - testing
+  - history_copy
+  - report
+  - deploy
+
+testing_job:
+  stage: testing
+  tags:
+    - docker
+  variables:
+    "autotests_retry_count": 0
+  when: manual
+  script:
+    - mvn clean test
+
+  artifacts:
+    when: always
+    paths:
+      - ./target/allure-results
+    expire_in: 1 week
+  rules:
+    - when: always
+
+allure_job:
+  stage: report
+  tags:
+    - docker
+  image: frankescobar/allure-docker-service
+  script:
+    - allure generate -c ./target/allure-results -o ./target/allure-report
+  artifacts:
+    paths:
+      - ./target/allure-results
+      - ./target/allure-report
+      - ./.allure
+      - open_allure_report.bat
+    expire_in: 1 week
+  rules:
+    - when: always
+
+pages:
+  stage: deploy
+  tags:
+    - docker
+  script:
+    - mkdir public
+    - mv ./target/allure-report/* public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - when: always
