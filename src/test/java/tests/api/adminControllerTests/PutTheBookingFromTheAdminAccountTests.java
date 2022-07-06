@@ -3,7 +3,7 @@ package tests.api.adminControllerTests;
 import api.core.MeetingRoomAdmin;
 import api.dto.EventDto;
 import api.dto.PutEventDto;
-import db.DataBase;
+import db.DataBaseDelete;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.json.JSONObject;
@@ -16,12 +16,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static api.core.ApiEndpoints.*;
+import static api.core.ApiEndpoints.ADMIN_EVENTS;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class PutTheBookingFromTheAdminAccountTests {
     private MeetingRoomAdmin meetingRoomAdmin;
-    private DataBase dataBase;
+    private DataBaseDelete dataBaseDelete;
     private Integer id;
     private JSONObject eventDto;
     private JSONObject putEventDto;
@@ -65,7 +65,7 @@ public class PutTheBookingFromTheAdminAccountTests {
 
     @AfterClass
     public void deleteBookingByIdDataBase() throws SQLException {
-        dataBase = new DataBase();
-        dataBase.delete(id);
+        dataBaseDelete = new DataBaseDelete();
+        dataBaseDelete.deleteEvenDataBase(id);
     }
 }

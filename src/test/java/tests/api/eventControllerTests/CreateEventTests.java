@@ -2,7 +2,7 @@ package tests.api.eventControllerTests;
 
 import api.core.MeetingRoomClient;
 import api.dto.EventDto;
-import db.DataBase;
+import db.DataBaseDelete;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.json.JSONObject;
@@ -21,7 +21,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CreateEventTests {
     private MeetingRoomClient meetingRoomClient;
-    private DataBase dataBase;
+    private DataBaseDelete dataBaseDelete;
     private JSONObject eventDto;
     private Integer id;
     private String pattern = "yyyy-MM-dd'T'kk:mm:ss.SS";
@@ -62,7 +62,7 @@ public class CreateEventTests {
 
     @AfterClass
     public void deleteBookingByIdDataBase() throws SQLException {
-        dataBase = new DataBase();
-        dataBase.delete(id);
+        dataBaseDelete = new DataBaseDelete();
+        dataBaseDelete.deleteEvenDataBase(id);
     }
 }
