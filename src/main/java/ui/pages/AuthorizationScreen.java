@@ -1,21 +1,39 @@
 package ui.pages;
 
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AuthorizationScreen extends BaseScreen {
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@text = 'E-mail']")
-    private AndroidElement emailField;
+    @FindBy(id = "app_logo_login_fragment")
+    private WebElement logoImg;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@text = 'Password']")
-    private AndroidElement passwordField;
-    
-    @AndroidFindBy(id = "com.andersenlab.meeting_room.debug:id/log_in_button_main_activity")
-    private AndroidElement logInButton;
+    @FindBy(id = "app_name_login_fragment")
+    private WebElement tittle;
 
-    @AndroidFindBy(id = "com.andersenlab.meeting_room.debug:id/error_text_custom_edit_text")
-    private AndroidElement errorField;
+    @FindBy(id = "app_motto_login_fragment")
+    private WebElement textUnderTittleElement;
+
+    @FindBy(xpath = "//android.widget.EditText[@text='E-mail']")
+    private WebElement emailField;
+
+    @FindBy(xpath = "//android.widget.EditText[@text='E-mail']/following-sibling::*[@resource-id='com.andersenlab.meeting_room.debug:id/view_custom_edit_text']")
+    private WebElement lineUnderEmailField;
+
+    @FindBy(xpath = "//android.widget.EditText[@text='Password']")
+    private WebElement passwordField;
+
+    @FindBy(id = "toggle_button_custom_edit_text")
+    private WebElement eyeButton;
+
+    @FindBy(xpath = "//android.widget.EditText[@text='Password']/following-sibling::*[@resource-id='com.andersenlab.meeting_room.debug:id/view_custom_edit_text']")
+    private WebElement lineUnderPasswordField;
+
+    @FindBy(id = "log_in_text_main_activity")
+    private WebElement logInButton;
+
+    @FindBy(id = "error_text_custom_edit_text")
+    private WebElement errorField;
 
     public void enterEmail(String email) {
         emailField.sendKeys(email);

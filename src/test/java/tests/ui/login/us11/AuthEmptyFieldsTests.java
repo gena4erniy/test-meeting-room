@@ -1,4 +1,4 @@
-package tests.ui.us11;
+package tests.ui.login.us11;
 
 
 import io.appium.java_client.android.AndroidDriver;
