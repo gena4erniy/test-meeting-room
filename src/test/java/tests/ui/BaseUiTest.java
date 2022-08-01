@@ -1,16 +1,16 @@
 package tests.ui;
 
 import driver.manager.DriverManager;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import org.testng.annotations.AfterClass;
+import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import static ui.constants.Constant.Capabilities.APP_PACKAGE;
 
 public abstract class BaseUiTest {
 
-    protected AndroidDriver<AndroidElement> driver;
+    protected AppiumDriver<WebElement> driver;
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
@@ -18,7 +18,7 @@ public abstract class BaseUiTest {
         driver.activateApp(APP_PACKAGE);
     }
 
-    @AfterClass
+    @AfterMethod
     public void closeDriver() {
         if (driver != null) {
             driver.terminateApp(APP_PACKAGE);

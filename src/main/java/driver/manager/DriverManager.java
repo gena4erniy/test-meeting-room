@@ -1,9 +1,10 @@
 package driver.manager;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -11,13 +12,12 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import static ui.constants.Constant.Capabilities.*;
-import static ui.constants.Constant.Capabilities.NAME_AUTOMATION;
 import static ui.constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
 import static ui.constants.Constant.Urls.DRIVER_URL;
 
 public class DriverManager {
 
-    private static AndroidDriver<AndroidElement> driver;
+    private static AppiumDriver<WebElement> driver;
 
     private DriverManager() {
     }
@@ -41,13 +41,15 @@ public class DriverManager {
         return cap;
     }
 
-    private static AndroidDriver<AndroidElement> createDriver() {
+    //    private static AndroidDriver<AndroidElement> createDriver() {
+    private static AppiumDriver<WebElement> createDriver() {
         driver = new AndroidDriver<>(createUrl(), getCapabilities());
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         return driver;
     }
 
-    public static AndroidDriver<AndroidElement> getDriver() {
+    //    public static AndroidDriver<AndroidElement> getDriver() {
+    public static AppiumDriver<WebElement> getDriver() {
         if (driver == null) {
             try {
                 driver = createDriver();

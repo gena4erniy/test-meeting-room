@@ -1,10 +1,10 @@
 package steps;
 
 import io.qameta.allure.Step;
-import org.testng.Assert;
 import ui.pages.AuthorizationScreen;
+import verification.VerifySoft;
 
-public class AuthorizationStep {
+public class AuthorizationStep extends BaseStep{
 
     private AuthorizationScreen authorizationScreen;
 
@@ -29,14 +29,12 @@ public class AuthorizationStep {
     }
 
     @Step("Check LOG IN button activity")
-    public void checkLogInButtonActivity(Boolean activity) {
-        Assert.assertEquals(authorizationScreen.getLogInButtonActivity(), activity);
+    public void checkLogInButtonActivity(Boolean activity, String message) {
+        VerifySoft.verifyEqualsSoft(authorizationScreen.getLogInButtonActivity(), activity, message);
     }
 
     @Step("Check error message")
-    public void verifyErrorMessage(String errorMessage) {
-        Assert.assertEquals(authorizationScreen.getErrorMessage(), errorMessage);
+    public void verifyErrorMessage(String errorMessage, String message) {
+        VerifySoft.verifyEqualsSoft(authorizationScreen.getErrorMessage(), errorMessage, message);
     }
-
-    //TODO Создать отдельный класс с софт ассертами и использовать их
 }
