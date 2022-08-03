@@ -1,20 +1,30 @@
 package steps;
 
 import io.qameta.allure.Step;
-import ui.pages.LocationScreen;
+import ui.screens.LocationScreen;
 import verification.VerifySoft;
 
 public class LocationStep extends BaseStep {
 
     private LocationScreen locationScreen;
 
-    @Step("On authorization screen")
+    @Step("On location screen")
     public void onLocationScreen() {
         locationScreen = new LocationScreen();
     }
 
-    @Step("Check tittle")
-    public void verifyTittle(String tittle, String message) {
-        VerifySoft.verifyEqualsSoft(locationScreen.getTittle(), tittle, message);
+    @Step("Tap select location button")
+    public void tapSelectLocationButton() {
+        locationScreen.tapSelectLocationButton();
+    }
+
+    @Step("Tap next button")
+    public void tapNextButton() {
+        locationScreen.tapNextButton();
+    }
+
+    @Step("Check title")
+    public void verifyTitle(String title, String message) {
+        VerifySoft.verifyEqualsSoft(locationScreen.getTitle(), title, message);
     }
 }

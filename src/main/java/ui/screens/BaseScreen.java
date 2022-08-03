@@ -1,4 +1,4 @@
-package ui.pages;
+package ui.screens;
 
 import driver.manager.DriverManager;
 import org.openqa.selenium.support.PageFactory;

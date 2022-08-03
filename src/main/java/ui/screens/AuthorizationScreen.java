@@ -1,4 +1,4 @@
-package ui.pages;
+package ui.screens;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,10 +9,10 @@ public class AuthorizationScreen extends BaseScreen {
     private WebElement logoImg;
 
     @FindBy(id = "app_name_login_fragment")
-    private WebElement tittle;
+    private WebElement title;
 
     @FindBy(id = "app_motto_login_fragment")
-    private WebElement textUnderTittleElement;
+    private WebElement textUnderTitleElement;
 
     @FindBy(xpath = "//android.widget.EditText[@text='E-mail']")
     private WebElement emailField;
@@ -34,6 +34,10 @@ public class AuthorizationScreen extends BaseScreen {
 
     @FindBy(id = "error_text_custom_edit_text")
     private WebElement errorField;
+
+    public String getTitle() {
+        return title.getText();
+    }
 
     public void enterEmail(String email) {
         emailField.sendKeys(email);

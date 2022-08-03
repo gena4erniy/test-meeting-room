@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UI" parallel="classes">
+    <test name="US11" parallel="classes">
+        <classes>
+            <class name="tests.ui.login.us11.UserAuthorizationTest"/>
+        </classes>
+    </test>
+    <test name="US12" parallel="classes">
+        <classes>
+            <class name="tests.ui.login.us12.AdministratorAuthorizationTest"/>
+        </classes>
+    </test>
+    <test name="US13" parallel="classes">
+        <classes>
+            <class name="tests.ui.login.us13.ReturningTest"/>
+        </classes>
+    </test>
+    <test name="US14" parallel="classes">
+        <classes>
+            <class name="tests.ui.login.us14.SetOfficeLocationTest"/>
+        </classes>
+    </test>
+</suite>

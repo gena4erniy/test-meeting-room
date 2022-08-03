@@ -1,10 +1,10 @@
 package steps;
 
 import io.qameta.allure.Step;
-import ui.pages.AuthorizationScreen;
+import ui.screens.AuthorizationScreen;
 import verification.VerifySoft;
 
-public class AuthorizationStep extends BaseStep{
+public class AuthorizationStep extends BaseStep {
 
     private AuthorizationScreen authorizationScreen;
 
@@ -36,5 +36,10 @@ public class AuthorizationStep extends BaseStep{
     @Step("Check error message")
     public void verifyErrorMessage(String errorMessage, String message) {
         VerifySoft.verifyEqualsSoft(authorizationScreen.getErrorMessage(), errorMessage, message);
+    }
+
+    @Step("Check title")
+    public void verifyTitle(String title, String message) {
+        VerifySoft.verifyEqualsSoft(authorizationScreen.getTitle(), title, message);
     }
 }
