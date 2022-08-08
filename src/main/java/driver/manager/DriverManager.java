@@ -41,14 +41,12 @@ public class DriverManager {
         return cap;
     }
 
-    //    private static AndroidDriver<AndroidElement> createDriver() {
     private static AppiumDriver<WebElement> createDriver() {
         driver = new AndroidDriver<>(createUrl(), getCapabilities());
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         return driver;
     }
 
-    //    public static AndroidDriver<AndroidElement> getDriver() {
     public static AppiumDriver<WebElement> getDriver() {
         if (driver == null) {
             try {

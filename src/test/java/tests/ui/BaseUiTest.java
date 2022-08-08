@@ -13,14 +13,15 @@ public abstract class BaseUiTest {
     protected AppiumDriver<WebElement> driver;
 
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() {
+    public void setUp() {
         driver = DriverManager.getDriver();
         driver.activateApp(APP_PACKAGE);
     }
 
-    @AfterMethod
-    public void closeDriver() {
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
         if (driver != null) {
+            driver.resetApp();
             driver.terminateApp(APP_PACKAGE);
         }
     }

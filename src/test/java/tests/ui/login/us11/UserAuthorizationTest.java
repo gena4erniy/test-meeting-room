@@ -28,7 +28,7 @@ public class UserAuthorizationTest extends BaseUiTest {
         authorizationStep.checkLogInButtonActivity(true, "Log in button is active");
         authorizationStep.tapOnLogInButton();
         locationStep.onLocationScreen();
-        locationStep.verifyTittle("Select your location", "Tittle does not match");
+        locationStep.verifyTitle("Select your location", "Tittle does not match");
         authorizationStep.checkAll();
     }
 
