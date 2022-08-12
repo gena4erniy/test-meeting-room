@@ -14,6 +14,10 @@ public class VerifySoft {
         softAssert.assertEquals(actual, expected, message);
     }
 
+    public static void verifyEqualsSoft(int actual, int expected, String message) {
+        softAssert.assertEquals(actual, expected, message);
+    }
+
     public static void showAllChecking() {
         try {
             softAssert.assertAll();

@@ -14,7 +14,7 @@ import static ui.constants.Constant.ValidCredo.VALID_PASS;
 
 @Epic("Login")
 @Feature("US 1.4")
-public class SetOfficeLocationTest extends BaseUiTest {
+public class SetOfficeLocationTests extends BaseUiTest {
 
     private AuthorizationStep authorizationStep = new AuthorizationStep();
     private LocationStep locationStep = new LocationStep();

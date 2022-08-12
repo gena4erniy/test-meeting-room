@@ -10,7 +10,7 @@ import static ui.constants.Constant.ValidCredo.*;
 
 @Epic("Login")
 @Feature("US 1.3")
-public class ReturningTest extends BaseUiTest {
+public class ReturningTests extends BaseUiTest {
 
     private AuthorizationStep authorizationStep = new AuthorizationStep();
     private LocationStep locationStep = new LocationStep();
