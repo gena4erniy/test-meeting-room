@@ -3,22 +3,22 @@
 <suite name="UI" parallel="classes">
     <test name="US11" parallel="classes">
         <classes>
-            <class name="tests.ui.login.us11.UserAuthorizationTest"/>
+            <class name="tests.ui.login.us11.UserAuthorizationTests"/>
         </classes>
     </test>
     <test name="US12" parallel="classes">
         <classes>
-            <class name="tests.ui.login.us12.AdministratorAuthorizationTest"/>
+            <class name="tests.ui.login.us12.AdministratorAuthorizationTests"/>
         </classes>
     </test>
     <test name="US13" parallel="classes">
         <classes>
-            <class name="tests.ui.login.us13.ReturningTest"/>
+            <class name="tests.ui.login.us13.ReturningTests"/>
         </classes>
     </test>
     <test name="US14" parallel="classes">
         <classes>
-            <class name="tests.ui.login.us14.SetOfficeLocationTest"/>
+            <class name="tests.ui.login.us14.SetOfficeLocationTests"/>
         </classes>
     </test>
 </suite>

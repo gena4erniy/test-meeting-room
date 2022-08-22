@@ -12,7 +12,7 @@ import static ui.constants.Constant.ValidCredo.VALID_PASS;
 
 @Epic("Login")
 @Feature("US 1.1")
-public class UserAuthorizationTest extends BaseUiTest {
+public class UserAuthorizationTests extends BaseUiTest {
 
     private AuthorizationStep authorizationStep = new AuthorizationStep();
     private LocationStep locationStep = new LocationStep();
@@ -28,7 +28,7 @@ public class UserAuthorizationTest extends BaseUiTest {
         authorizationStep.checkLogInButtonActivity(true, "Log in button is active");
         authorizationStep.tapOnLogInButton();
         locationStep.onLocationScreen();
-        locationStep.verifyTitle("Select your location", "Tittle does not match");
+        locationStep.verifyTitle("Select your location", "Title does not match");
         authorizationStep.checkAll();
     }
 

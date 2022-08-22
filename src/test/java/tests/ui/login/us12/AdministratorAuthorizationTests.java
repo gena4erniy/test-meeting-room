@@ -14,7 +14,7 @@ import static ui.constants.Constant.ValidCredo.VALID_PASS_ADMIN;
 
 @Epic("Login")
 @Feature("US 1.2")
-public class AdministratorAuthorizationTest extends BaseUiTest {
+public class AdministratorAuthorizationTests extends BaseUiTest {
 
     private AuthorizationStep authorizationStep = new AuthorizationStep();
     private LocationStep locationStep = new LocationStep();
