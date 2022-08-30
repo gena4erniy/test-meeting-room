@@ -1,4 +1,4 @@
-package tests.api.authController;
+package tests.api.auth.controller;
 
 import api.core.ClientForToken;
 import api.dto.LoginRequestDto;

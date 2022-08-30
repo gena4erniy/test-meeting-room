@@ -3,10 +3,7 @@ package db;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import static ui.constants.ApiData.*;
 
@@ -32,5 +29,19 @@ public class DataBaseManager {
         } catch (SQLException e) {
             logger.error(e.toString());
         }
+    }
+
+    public static String getOfficeById(String id, String columnLabel) {
+        String columnItem = "";
+        String sql = "select * from offices where id = %s";
+        try {
+            ResultSet resultSet = statement.executeQuery(String.format(sql, id));
+            while (resultSet.next()) {
+                columnItem = resultSet.getString(columnLabel);
+            }
+        } catch (SQLException e) {
+            logger.error(e.toString());
+        }
+        return columnItem;
     }
 }

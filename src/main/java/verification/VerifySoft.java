@@ -6,15 +6,7 @@ public class VerifySoft {
 
     private static SoftAssert softAssert = new SoftAssert();
 
-    public static void verifyEqualsSoft(boolean actual, boolean expected, String message) {
-        softAssert.assertEquals(actual, expected, message);
-    }
-
-    public static void verifyEqualsSoft(String actual, String expected, String message) {
-        softAssert.assertEquals(actual, expected, message);
-    }
-
-    public static void verifyEqualsSoft(int actual, int expected, String message) {
+    public static <T> void verifyEqualsSoft(T actual, T expected, String message) {
         softAssert.assertEquals(actual, expected, message);
     }
 
