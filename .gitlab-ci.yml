@@ -1,0 +1,18 @@
+image: maven:3.8.6-jdk-11
+
+cache:
+  paths:
+    - target/
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - mvn clean test -Dsurefire.suiteXmlFiles=src/testResources/testSuiteAPI.xml
+    - mvn io.qameta.allure:allure-maven:report
+  artifacts:
+    when: always
+    paths:
+      - /builds/Andersen/meeting-room-2.0-aqa/target/site/allure-maven-plugin

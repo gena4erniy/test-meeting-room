@@ -3,7 +3,8 @@
 <suite name="API" parallel="classes">
     <test name="API" parallel="classes">
         <packages>
-            <package name="api"/>
+            <package name="tests.api.authController"/>
+            <package name="tests.api.office.controller"/>
         </packages>
     </test>
 </suite>
