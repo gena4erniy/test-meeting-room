@@ -1,4 +1,4 @@
-package tests.api.authController;
+package tests.api.auth.controller;
 
 import api.core.ClientForToken;
 import api.dto.LoginRequestDto;
@@ -8,8 +8,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import verification.VerifySoft;
 
-import static ui.constants.Codes.*;
 import static api.core.ApiEndpoints.AUTH_SIGNIN;
+import static ui.constants.Codes.ERROR_BAD_REQUEST;
+import static ui.constants.Codes.ERROR_METHOD_NOT_ALLOWED;
 import static ui.constants.Constant.ValidCredo.VALID_MAIL;
 import static ui.constants.Constant.ValidCredo.VALID_PASS;
 
@@ -40,7 +41,7 @@ public class AuthenticationAndAuthorizationNegativeTests {
 
     @Owner("Danilenko D.")
     @Test(description = "Error getting tokens with invalid email", dataProvider = "Creating data with invalid emails")
-    public void errorGettingTokensWithInvalidEmail(String email, String password, int expectedStatusCode, String expectedError) {
+    public void errorGettingTokensWithInvalidEmail(String email, String password, String expectedStatusCode, String expectedError) {
         authenticationAndAuthorizationNegative(email, password, expectedStatusCode, expectedError);
     }
 
@@ -55,7 +56,7 @@ public class AuthenticationAndAuthorizationNegativeTests {
 
     @Owner("Danilenko D.")
     @Test(description = "Error getting tokens with invalid email", dataProvider = "Creating data with invalid pass")
-    public void errorGettingTokensWithInvalidPass(String email, String password, int expectedStatusCode, String expectedError) {
+    public void errorGettingTokensWithInvalidPass(String email, String password, String expectedStatusCode, String expectedError) {
         authenticationAndAuthorizationNegative(email, password, expectedStatusCode, expectedError);
     }
 
@@ -78,21 +79,19 @@ public class AuthenticationAndAuthorizationNegativeTests {
                 ERROR_METHOD_NOT_ALLOWED.getDescription());
     }
 
-    public void authenticationAndAuthorizationNegative(String email, String pass, int expectedStatusCode, String expectedError) {
+    public void authenticationAndAuthorizationNegative(String email, String pass, String expectedStatusCode, String expectedError) {
         loginRequestDto = LoginRequestDto.builder().email(email).password(pass).build().createBody();
         clientForToken = new ClientForToken();
         JSONObject responseTokens = clientForToken.postCall(AUTH_SIGNIN, loginRequestDto);
         authenticationAndAuthorizationNegative(responseTokens, expectedStatusCode, expectedError);
     }
 
-    public void authenticationAndAuthorizationNegative(JSONObject responseTokens, int expectedStatusCode, String expectedError) {
-        VerifySoft.verifyEqualsSoft(responseTokens.getInt("Status Code"), expectedStatusCode,
+    public void authenticationAndAuthorizationNegative(JSONObject responseTokens, String expectedStatusCode, String expectedError) {
+        VerifySoft.verifyEqualsSoft(responseTokens.get("Status Code").toString(), expectedStatusCode,
                 "Expected status code does not match");
-        VerifySoft.verifyEqualsSoft(responseTokens.get("error").toString(), expectedError,
-                "Expected error does not match");
+        VerifySoft.verifyEqualsSoft(responseTokens.get("error").toString(), expectedError, "Expected error does not match");
         VerifySoft.verifyEqualsSoft(responseTokens.has("token"), false, "Response body has token");
-        VerifySoft.verifyEqualsSoft(responseTokens.has("refreshToken"), false,
-                "Response body has refreshToken");
+        VerifySoft.verifyEqualsSoft(responseTokens.has("refreshToken"), false, "Response body has refreshToken");
         VerifySoft.showAllChecking();
     }
 }
