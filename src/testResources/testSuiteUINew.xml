@@ -21,4 +21,14 @@
             <class name="tests.ui.login.us14.SetOfficeLocationTests"/>
         </classes>
     </test>
+    <test name="US21" parallel="classes">
+        <classes>
+            <class name="tests.ui.my.space.us21.ListUpcomingEventsTests"/>
+        </classes>
+    </test>
+    <test name="US23" parallel="classes">
+        <classes>
+            <class name="tests.ui.my.space.us23.ModifyUpcomingEventTests"/>
+        </classes>
+    </test>
 </suite>
