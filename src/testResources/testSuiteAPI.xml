@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="API" parallel="classes">
-    <test name="API" parallel="classes">
+<suite name="API">
+    <test name="API">
         <packages>
             <package name="tests.api.auth.controller"/>
+            <package name="tests.api.event.controller"/>
             <package name="tests.api.office.controller"/>
         </packages>
     </test>
