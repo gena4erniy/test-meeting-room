@@ -18,11 +18,11 @@ public class Constant {
     }
 
     public static class ValidCredo {
-        public static final String VALID_MAIL = "user1@gmail.com";
-        public static final String VALID_PASS = "1111";
+        public static final String VALID_MAIL = "tanya2@gmail.com";
+        public static final String VALID_PASS = "t192M29aw!";
 
-        public static final String VALID_MAIL_ADMIN = "n.ermakov@andersenlab.com";
-        public static final String VALID_PASS_ADMIN = "helloworld";
+        public static final String VALID_MAIL_ADMIN = "ilyaAdmin@gmail.com";
+        public static final String VALID_PASS_ADMIN = "Qwerty1!";
     }
 
     public static class ValidNoEventRoomCredo {
